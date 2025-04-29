@@ -1,0 +1,1593 @@
+
+Search in video
+0:00
+Google's Gemini 2.0 is making huge waves
+0:02
+in the AI world right now and some are
+0:05
+even calling it The Open AI killer and
+0:07
+honestly I don't think that's too
+0:08
+far-fetched right now given some of the
+0:10
+insane things that you can do with it
+0:12
+right now so today in this video I'm
+0:13
+going to share with you nine
+0:14
+mind-blowing use cases of Gemini 2.0 for
+0:18
+online businesses so the first thing to
+0:19
+know about Gemini 2.0 is that it's
+0:21
+completely free to use so if you go to
+0:23
+Google's AI Studio I'll link to it in
+0:26
+the description below but it's totally
+0:28
+free to use so when you go here you'll
+0:30
+see right on the screen that you can
+0:32
+start with a chat this is your normal AI
+0:34
+chat and in the upper right hand corner
+0:37
+if you go to the model dropdown you can
+0:39
+click on any of the models that uh
+0:42
+Google has released for Gemini at the
+0:44
+time recording this they've just
+0:46
+released this 2.0 flash thinking
+0:49
+experimental model great name right um
+0:53
+this is Ain to uh gpts 01 this is your
+0:57
+uh chain of reasoning your thought
+0:59
+process sort of model but we're gon to
+1:01
+be talking mostly today about the Gemini
+1:02
+2.0 flash experimental model and we're
+1:05
+going to go over to the stream real time
+1:08
+option in the upper leftand corner here
+1:10
+so you see in the screen multimo live
+1:12
+API with Gemini 2.0 this is where the
+1:15
+magic is happening right now with Gemini
+1:18
+2.0 and this is what we're going to dive
+1:20
+into right now as you can see here you
+1:22
+can talk to Gemini you can show Gemini
+1:24
+so if you have a webcam on your computer
+1:27
+or you can also access this on your
+1:30
+phone by the way so you can use your
+1:32
+your uh phone camera and show Gemini
+1:35
+things and it will describe it you can
+1:37
+ask questions about what you're looking
+1:38
+at it's really really cool we're going
+1:40
+to be looking at a lot today with the
+1:43
+share your screen option and we're going
+1:45
+to be able to talk to Gemini based on
+1:48
+what we're looking at on the computer
+1:51
+screen so let's start doing that so
+1:52
+we're going to click on share your
+1:54
+screen and we get to choose which screen
+1:56
+that we want to share you can see in the
+1:57
+bottom left hand corner the the red uh
+2:00
+buttons here microphone obviously allows
+2:02
+you to talk and the camera is the screen
+2:05
+sharing part so I'm going to share my
+2:07
+main screen
+2:09
+here and I'm going to open up a sample
+2:14
+p&l so for this first use case we're
+2:16
+going to use Gemini 2.0 to analyze a
+2:20
+profit and loss statement from your
+2:22
+online business so what we're looking at
+2:23
+here today is a sample profit and loss
+2:27
+and so what I'm gonna I'm going to do is
+2:28
+I'm gonna ask Google here to analyze
+2:32
+this p&l to discuss uh identify Trends
+2:37
+with it see if it can share with me what
+2:39
+the profit margin percentage is and then
+2:42
+also how to increase the profit margin
+2:45
+so hey Google we're looking at a profit
+2:47
+and loss statement of an online business
+2:49
+right now can you see that sure the
+2:51
+video shows a spreadsheet with a profit
+2:52
+and loss statement the speaker mentions
+2:54
+using Gemini 2.0 to analyze the
+2:57
+information and identify trends they
+3:00
+would also like to know the profit
+3:02
+margin percentage and how to increase it
+3:04
+is there anything else you would like to
+3:06
+know or explore regarding this profit
+3:08
+and loss statement yeah I want you to
+3:10
+take a look at this p&l and number one
+3:12
+tell me what the uh profit margin
+3:14
+percentage is okay I see that you would
+3:17
+like to know the profit margin
+3:19
+percentage from the P and L the net
+3:21
+profit is $199,300 and the revenue is
+3:26
+$75,000 meaning the profit margin
+3:28
+percentage is 25
+3:30
+7% would you like to explore further
+3:32
+regarding this yeah can you tell me how
+3:34
+I can increase that profit margin based
+3:36
+on what you're looking at in the profit
+3:38
+and loss statement I want you to
+3:40
+prioritize the top three things that we
+3:43
+could do to increase that profit margin
+3:46
+certainly based on the profit and loss
+3:47
+statement here are the top three things
+3:49
+you could prioritize to increase your
+3:51
+profit margin first you could increase
+3:53
+product sales which is currently the
+3:54
+highest revenue driver at
+3:56
+$60,000 second you could reduce cost of
+3:59
+goods sold as that has the highest spend
+4:01
+at
+4:02
+$25,000 lastly you could decrease wages
+4:05
+which currently is
+4:06
+$115,000 do you want me to elaborate on
+4:08
+these or explore other ways to increase
+4:10
+profit margin now this is great thanks
+4:13
+you're welcome let me know if you have
+4:14
+any more questions all right so now I'm
+4:16
+back in the AI Studio here and you can
+4:18
+see the conversations that we're going
+4:20
+back and forth now over in the right
+4:22
+hand column here you can choose the
+4:24
+output format obviously I was choosing
+4:26
+audio to be able to speak to the AI I
+4:30
+can also choose text and what that does
+4:33
+is it types out what the conversation is
+4:36
+and what Google is saying I don't I I
+4:40
+like the option of text because I get to
+4:42
+see what it's being what's being said on
+4:44
+the screen but it's not as easy to have
+4:47
+a back and forth conversation um with
+4:49
+the AI model so if you want to see what
+4:53
+is being said during the conversation
+4:56
+you will have to go and click the three
+4:59
+little dots next to the audio file here
+5:03
+and click on download and then you can
+5:04
+go over to like notebook LM or uh
+5:08
+riverside. FM transcription and have it
+5:12
+transcribed that that part is a little
+5:14
+bit of a pain in the butt but I prefer
+5:17
+the audio back and forth because I can
+5:19
+again you can have a conversation with
+5:21
+it and then you can go back if you want
+5:23
+to and and get the transcript of the
+5:26
+files it's not ideal right now but I
+5:29
+really like the ability to talk back and
+5:31
+forth with the AI by the way if you like
+5:33
+this type of information and you're an
+5:35
+online business and you're looking to
+5:36
+learn more about how to leverage AI in
+5:38
+your business so that you can work a
+5:40
+whole lot less in the business and
+5:42
+increase profit while you're doing that
+5:44
+I want to invite you to join me in our
+5:46
+school Community called the AI Playbook
+5:48
+premium Community as you can see here on
+5:50
+the screen it's an amazing community
+5:53
+that uh we're just talking AI all day
+5:55
+every day this is a place for you to ask
+5:57
+questions and connect with other
+5:58
+like-minded online online businesses we
+6:00
+have weekly calls classroom with all
+6:03
+kinds of uh workshops and lessons and
+6:06
+courses and stuff like that here want to
+6:08
+invite you to join us inside the AI
+6:10
+Playbook community and I will link to it
+6:12
+in the description below for this next
+6:14
+use case speaking of improving business
+6:16
+performance using Gemini 2.0 and the
+6:19
+screen sharing option is an awesome way
+6:21
+to analyze your ad campaign stat so if
+6:24
+you're running any kind of ads whether
+6:26
+it be meta ads or Google ads sometimes
+6:28
+it's kind of difficult to look at the
+6:30
+stats and make sense of what's going on
+6:32
+well you can use Gemini 2.0 in sharing
+6:35
+the screen option to optimize your ad
+6:38
+campaigns let me show you what I'm
+6:39
+talking about here yeah so Google what
+6:40
+you're looking at here is a meta ads
+6:43
+report and what I want to do is I want
+6:46
+you to help me figure out where we are
+6:50
+underperforming I want you to suggest
+6:53
+ways to increase return on ad spend and
+6:56
+get more for our ad dollar certainly
+6:58
+you're showing me a meta ads report
+7:00
+spreadsheet and you want me to help you
+7:01
+figure out where you are underperforming
+7:03
+you would also like me to suggest ways
+7:05
+to increase return on ad spend and get
+7:07
+more for your ad dollar is that correct
+7:09
+yeah that's right okay I understand I'll
+7:12
+take a look at the data to identify
+7:13
+areas of underperformance and suggest
+7:16
+ways to improve your return on ad spend
+7:18
+okay go ahead okay looking at the
+7:20
+spreadsheet it seems like the return on
+7:22
+ad spend or
+7:23
+Ras is pretty varied ranging from 1.5 to
+7:27
+5.5 I see that some days have a lower r
+7:31
+o a s for example December 16th and 17th
+7:36
+both show a Ras under two which seems to
+7:40
+be an area that is underperforming
+7:42
+compared to days like December 2nd where
+7:44
+the r was
+7:46
+5.5 do you want to dig in deeper on any
+7:49
+of these
+7:50
+dates yeah I want you to tell me how we
+7:52
+can increase the overall Ras for this
+7:56
+campaign and reduce wasted ad spend okay
+7:59
+you want to increase the overall roas
+8:01
+for this campaign and reduce wasted ad
+8:04
+spend there are a few ways we could try
+8:05
+to do this first I would suggest we look
+8:08
+at your cost per lead for instance the
+8:10
+cost per lead on December 16th was
+8:13
+$5.88 which appears to be the highest in
+8:15
+your data all right so as you can see
+8:17
+here one of the annoying things about it
+8:19
+which I also understand what the AI is
+8:21
+doing but it always wants to confirm
+8:23
+with you what you're asking for which I
+8:25
+get it's just a little bit annoying
+8:27
+because it kind of slows things down
+8:29
+but it was analyzing that spreadsheet
+8:32
+and starting to give me suggestions on
+8:34
+how to improve uh return on ad spend and
+8:37
+reduce wasted ad budget which I think is
+8:39
+super cool and a great use case for Us
+8:42
+online businesses for this next use case
+8:44
+we're going to use Gemini 2.0 and the
+8:46
+screen sharing feature to analyze our
+8:49
+presentation so whether you're giving a
+8:51
+webinar a sales pitch or a talk in front
+8:54
+of a group of people you can have it
+8:56
+analyzed while you practice your
+8:58
+presentation with it and it'll give you
+9:01
+feedback in real time about the
+9:04
+presentation and how you're delivering
+9:05
+it let's check this out so again we go
+9:07
+over to share your screen we're going to
+9:09
+pick the screen and this time we're
+9:10
+going to choose my keynote slides hey
+9:12
+Google so this is a present sounds like
+9:14
+you're going to be sharing your keynote
+9:15
+slides is there anything you'd like to
+9:17
+do with them yeah I want you to analyze
+9:20
+the delivery of giving this presentation
+9:23
+and also give me some feedback on uh the
+9:27
+delivery and the clarity of message can
+9:29
+you do that sure I can analyze the
+9:31
+delivery of your presentation and
+9:33
+provide feedback on both the delivery
+9:35
+and Clarity of the message I'll take a
+9:37
+look at the slides and give you my
+9:38
+thoughts all right cool first before I
+9:39
+begin do you have any questions for me
+9:41
+that you need to know about in order to
+9:42
+do this task with me thanks that's a
+9:44
+good question do you want me to focus on
+9:46
+any specific aspects of the presentation
+9:48
+delivery like pacing tone or transitions
+9:52
+also is there any particular message
+9:54
+within the presentation that you are
+9:55
+most concerned about in terms of
+9:58
+clarity yeah I want to make sure that I
+10:00
+am motivating the people that I'm giving
+10:02
+this presentation to that they can use
+10:05
+AI in their online business even if they
+10:09
+are non techsavvy or maybe a little
+10:11
+afraid of using AI okay it sounds like
+10:13
+you want to make sure that your audience
+10:15
+feels empowered and motivated to use AI
+10:17
+in their online businesses even if
+10:19
+they're not tech-savvy or are a bit
+10:21
+hesitant about it I will keep that in
+10:23
+mind as I analyze your presentation all
+10:25
+right cool so on the first slide here I
+10:26
+talk about AI myths and sharing the the
+10:29
+fact that they do not need to be
+10:30
+techsavvy or no coding to use AI they
+10:34
+often think that AI tools are too
+10:35
+complicated uh that they're going to be
+10:37
+wasting time trying to figure it out and
+10:39
+it's just that one more thing to learn
+10:43
+but then I go right into why AI matters
+10:46
+for online businesses it's going to help
+10:47
+you reduce time you can delegate
+10:49
+repetitive tasks thus helping you scale
+10:52
+your business by doing these things it's
+10:54
+going to free up your time as the CEO of
+10:56
+your business to be able to work on the
+10:58
+higher impact things and The highed
+11:00
+Leverage activities and AI by the way is
+11:03
+no longer a nice to know at this point
+11:05
+it is a must no okay so on the first
+11:09
+slide you're addressing some common
+11:10
+myths about Ai and then the second slide
+11:13
+is about why AI matters for online
+11:15
+businesses mentioning that it can help
+11:17
+reduce time delegate tasks and scale a
+11:19
+business it's good that you're
+11:21
+addressing potential hesitations and
+11:23
+following it up with the benefits any
+11:25
+feedback that you would change there
+11:27
+slides are clear and well organized with
+11:29
+a good contrast between the text and
+11:31
+background to make it even more
+11:33
+impactful you could consider using
+11:35
+slightly larger fonts for the main
+11:37
+points on the why AI matters for you
+11:39
+slide and also perhaps use a more
+11:41
+Dynamic image background instead of a
+11:43
+solid color on the AI myth slide to
+11:45
+increase engagement I think that's super
+11:47
+cool that you can leverage this to
+11:49
+practice your presentations to get
+11:51
+feedback on the delivery the content the
+11:55
+messaging the design anything you want
+11:57
+to know about the slides you can be
+11:58
+Leverage leveraging the new Gemini 2.0
+12:01
+in order to do that now while we're on
+12:03
+the topic of leveraging Gemini 2.0 to
+12:06
+give you feedback I make a lot of
+12:07
+automations in make.com so we're often
+12:11
+coming across a lot of error messages
+12:13
+Within These scenarios that I'm building
+12:16
+well leveraging the screen sharing
+12:18
+option in Gemini 2.0 in order to
+12:21
+troubleshoot these issues is an amazing
+12:23
+use case for this technology let's check
+12:26
+it out so again we're clicking screen
+12:27
+share and we'll go over to make okay I
+12:30
+will go over to you is there anything
+12:32
+else I can help you with yeah Google so
+12:34
+we're looking at an automation that I've
+12:35
+built in make.com and I'm getting an
+12:38
+error message whenever I try to run the
+12:41
+automation can you help troubleshoot it
+12:43
+I'm going to go ahead and click run
+12:44
+right now and you should see an error
+12:46
+message up on the screen can you help me
+12:49
+with this sure I can help you with that
+12:51
+it looks like you're using make.com to
+12:53
+create an Automation and are getting an
+12:55
+error message when you try to run it I
+12:57
+see the Run button on the bottom left so
+12:59
+when you click on that you'll be able to
+13:00
+show me what happens yeah exactly so let
+13:02
+me do that again for you okay I'm ready
+13:04
+to see it please run the automation
+13:06
+again all right there it is okay I see
+13:08
+the error message at the bottom right of
+13:09
+the screen it says cannot read
+13:11
+properties of null reading device do you
+13:14
+know what this means no that's why I'm
+13:16
+asking you can you help me resolve this
+13:18
+issue okay I understand the error
+13:21
+message cannot read properties of null
+13:23
+reading device suggests that the
+13:25
+automation is trying to access a
+13:27
+property called device of a very
+13:29
+variable that is currently null or
+13:30
+undefined could you tell me a bit more
+13:33
+about what the automation is supposed to
+13:35
+do this would help me understand where
+13:36
+the device property should be defined
+13:38
+well first thing to know is that as soon
+13:41
+as I click run the error message pops up
+13:44
+so let's assume that it's in the first
+13:45
+step here okay that's helpful so the
+13:48
+error occurs right after you click run
+13:50
+which suggests that the issue might be
+13:52
+in the initial steps of your automation
+13:55
+the first step you have is the cloud
+13:57
+convert module is that correct
+13:59
+yes as you can see on the screen okay
+14:01
+thanks let's investigate the cloud
+14:03
+convert module then could you open up
+14:06
+its configuration settings by clicking
+14:08
+on it I'm curious to see what input
+14:10
+parameters are set up for that okay I
+14:12
+see the configuration settings for the
+14:14
+cloud convert module it looks like it's
+14:15
+asking you to create a web Hook is that
+14:18
+something you expected yeah that's right
+14:20
+just can you just tell me how to resolve
+14:21
+this issue okay it seems the issue is
+14:24
+that the cloud convert module requires a
+14:26
+web hook to be set up but it hasn't been
+14:28
+configured yet to resolve this you'll
+14:30
+need to create a web hook do you want to
+14:32
+do that now yeah let's do it okay to
+14:34
+create a web hook click the create a web
+14:37
+hook button inside the cloud convert
+14:38
+module once it is created the error
+14:41
+message should not appear so if you're
+14:43
+building any kind of automations using
+14:45
+make.com or zapier by the way we make a
+14:48
+ton of done for you automations for the
+14:50
+members of my AI Playbook premium School
+14:53
+Community again I'll link to it in the
+14:55
+description below but if you're doing
+14:57
+any kind of automation building in these
+15:00
+tools and you get a lot of errors that
+15:02
+don't necessarily make sense to you you
+15:04
+can leverage the screen sharing
+15:07
+technology here in Gemini 2.0 to help
+15:09
+troubleshoot these errors especially
+15:11
+when you get an error message you're
+15:12
+like I have no idea what this means you
+15:13
+can simply ask Google and it will help
+15:16
+walk you through it and troubleshoot it
+15:18
+with you for this next use case if
+15:19
+you're anything like me you often have
+15:21
+30 40 50 tabs open on your screen and if
+15:24
+you struggle with ADHD at all like I do
+15:29
+this is going to be a huge help for you
+15:32
+leveraging 2.0 and the screen sharing
+15:34
+capabilities to help you organize what
+15:36
+you've got going on on your screen and
+15:38
+to help you work through setting up your
+15:41
+priorities based on what you're looking
+15:43
+at on the screen with all the tabs open
+15:45
+check this out hey Google we're looking
+15:46
+at a whole bunch of tabs I have open on
+15:49
+my window here there's several
+15:51
+half-finished tasks and I'm feeling
+15:53
+really stuck can you help me make sense
+15:55
+of all this and figure out where to even
+15:57
+start sure I can help with that it
+15:59
+sounds like you have a lot of open tabs
+16:01
+and tasks and that you're feeling stuck
+16:04
+I will do my best to help you make sense
+16:05
+of it all and figure out where to start
+16:08
+do you want to start with the tabs or
+16:09
+the tasks where do you think we should
+16:12
+start I'm really overwhelmed with
+16:14
+everything I've got going on in the
+16:15
+screen okay it sounds like you're
+16:16
+feeling overwhelmed so let's tackle This
+16:18
+Together perhaps we can start by
+16:20
+focusing on one thing at a time would it
+16:23
+be helpful to begin by looking at the
+16:24
+open tabs or the list of tasks yeah
+16:27
+let's start with the open tabs all right
+16:29
+let's start with the open tabs could you
+16:31
+tell me which tabs you have open I see
+16:32
+some on the left side of the screen and
+16:34
+it looks like you have a stream realtime
+16:36
+tab open too yeah exactly what you're
+16:38
+looking at these the tabs that are open
+16:40
+are currently open right now which is
+16:42
+adding to the overwhelm and um I need
+16:46
+just some clearer focus and a structured
+16:48
+approach to tackling this overwhelm okay
+16:52
+it sounds like you're looking for a more
+16:54
+focused and structured approach to
+16:55
+tackling the overwhelm the tabs you have
+16:58
+open on the left are Google AI Studio to
+17:01
+read watch bookmarked working on now
+17:04
+zapier ai actions plus gpts so this is
+17:07
+another cool use case leveraging Gemini
+17:09
+2.0 in the screen sharing if you're have
+17:11
+all these tabs open and you've got half
+17:13
+done tasks and everything like that you
+17:15
+can leverage it to look at your screen
+17:18
+and help you organize things and make
+17:19
+sense of it and reduce that overwhelm
+17:22
+speaking of getting help with technology
+17:24
+Gemini 2.0 and the screen sharing can
+17:26
+really help you understand software or
+17:28
+tools or websites that you don't really
+17:31
+know what you're doing on that site so
+17:33
+I'm going to use repet as an example
+17:35
+because even though repet is super easy
+17:37
+to use in terms of what it can do for
+17:39
+you navigating repet is not my strong
+17:42
+suit so we're going to test out Gemini
+17:44
+2.0 and help me walk through repet and
+17:47
+how to build a tool using repet hey
+17:49
+Google what we're looking at here is the
+17:52
+repet website and I'm not really sure
+17:55
+how to use this site I'm pretty new to
+17:57
+it so I'm sharing my screen now can you
+17:59
+help me understand how to use repet in
+18:03
+building something that I've always been
+18:05
+thinking about for the business sure I
+18:08
+can help you with that replit is a
+18:10
+platform that allows you to write and
+18:11
+run code in your browser and it offers
+18:13
+many options for different kinds of
+18:14
+projects you might want to build to get
+18:16
+started you'll need to provide a
+18:17
+description of what you want to build in
+18:19
+the text box labeled describe an app or
+18:21
+site you want to create and then click
+18:23
+the button labeled start building can
+18:25
+you give me some more information on
+18:27
+what your goal is with rep yeah I want
+18:29
+to build an app for it's a special
+18:32
+onboarding app for my online membership
+18:35
+so that I can personalize the onboarding
+18:37
+experience is there a template that
+18:40
+repet has that I can use to get started
+18:42
+with this okay it sounds like you want
+18:44
+to build an onboarding app for your
+18:46
+online membership using repet and you're
+18:48
+wondering if there's a template you can
+18:49
+use to get started repet has many
+18:51
+templates for many purposes if you click
+18:53
+choose a template at the top of the page
+18:55
+it will display them do you see any that
+18:57
+might be a good fit for you or do you
+19:00
+want to provide some further details
+19:02
+about your project so that I can give
+19:03
+some
+19:04
+suggestions so I have no idea I know
+19:07
+that these are coding languages I have
+19:10
+no idea though what any of these mean in
+19:12
+terms of templates so maybe it's not the
+19:15
+best strategy for Me Maybe it's going
+19:17
+back here to the uh create with repet
+19:20
+agent you're right the template options
+19:22
+may not be the best fit for you at this
+19:23
+stage it looks like the create with
+19:25
+repet agent option is a good alternative
+19:28
+to explore
+19:29
+with that option you will describe what
+19:30
+you want to create in the text box and
+19:32
+replit will generate something based on
+19:34
+that description do you want me to
+19:35
+explain how the repl agent works or do
+19:37
+you just want to get started so by
+19:39
+sharing your screen with the software
+19:41
+that you're trying to figure out how to
+19:42
+use Gemini 2.0 can walk you through and
+19:45
+give you guidance on what steps that you
+19:47
+need to be taking in order to use the
+19:50
+software I mean how cool is that and
+19:52
+this kind of guidance isn't just for
+19:53
+software it can help you with your
+19:56
+website design too or landing pages so I
+19:58
+pulled up my website here and I want
+20:01
+Gemini 2.0 to analyze this uh website
+20:05
+for design for copy for flow Etc and
+20:10
+give me feedback on what changes I can
+20:12
+make to make it better hey Google what
+20:14
+what you're looking at here is my
+20:16
+website can you give me feedback on
+20:19
+usability design overall message
+20:22
+starting with the homepage and working
+20:24
+through the site structure sure I can do
+20:27
+that the website you're showing has a
+20:28
+man with his arms outstretched on the
+20:30
+right and text in the center that reads
+20:32
+I teach online businesses how to use AI
+20:34
+to work less and profit more with
+20:36
+additional text beneath that the page
+20:39
+also has a navigation menu on the top do
+20:41
+you want me to go deeper into the site
+20:44
+structure can you start with the design
+20:48
+what do you think about the design I
+20:49
+want to make this as super simple and a
+20:52
+clean UI as possible okay I see what
+20:56
+you're asking the website design is
+20:57
+pretty simple with a limited number of
+20:59
+colors and the text is easy to read the
+21:02
+layout is also very straightforward so
+21:04
+it seems like it could achieve that
+21:06
+Simple and Clean user interface you're
+21:07
+looking for is there anything about the
+21:09
+design in particular you'd like me to
+21:11
+focus on well I want you to tell me what
+21:13
+can be
+21:15
+improved okay I understand one thing
+21:18
+that could be improved is the color
+21:20
+contrast between the text and the
+21:21
+background while it's readable
+21:23
+increasing the contrast would make it
+21:25
+even easier to see additionally the IM
+21:28
+of the person could so because I'm not
+21:30
+an expert in usability or UI design or
+21:33
+anything like that I can leverage the
+21:35
+technology to show my website and go
+21:38
+through every single page on the site or
+21:40
+landing pages and have Gemini 2.0 give
+21:43
+me feedback on the design usability
+21:46
+messaging the flow of the pages Etc to
+21:49
+suggest the changes that I should be
+21:51
+making to it before I shared the last
+21:53
+two use cases you might be wondering
+21:55
+well yeah you can do a lot of these
+21:56
+things with chachy BT because they just
+21:58
+rolled out screen sharing and the
+22:01
+ability to do something similar to what
+22:03
+I'm showing you here with Gemini 2.0 in
+22:05
+fact open AI announced it like a day
+22:07
+after Gemini 2.0 was released which I
+22:10
+find interesting so yes you can do a lot
+22:13
+of the same things that we're doing here
+22:15
+today with Gemini 2.0 over with Chachi
+22:18
+BT and the screen sharing option and
+22:21
+using the advanced voice mode however
+22:24
+you are limited to the number of
+22:25
+interactions that you can have with it
+22:27
+per day whereas here with Gemini 2.0 and
+22:31
+you get like 1,500 requests per day with
+22:33
+Gemini 2.0 along with a million token
+22:37
+context window so that alone is a huge
+22:39
+differentiator with Gemini 2.0 and not
+22:42
+to mention it's totally free to use
+22:44
+Gemini 2.0 in the Google AI studio so
+22:47
+it's free to use and it's super super
+22:50
+fast now for this next use case let's
+22:51
+zoom out a little bit and look at our
+22:53
+business a little bit more holistically
+22:55
+and look at how the business operates so
+22:57
+we can use the screen sharing
+22:58
+functionality within 2.0 to look at the
+23:02
+bottlenecks within our workflow so what
+23:04
+I'm going to do with it is I'm going to
+23:05
+screen share my notion dashboard and ask
+23:08
+it for recommendations on how to improve
+23:10
+my workflows and how I have my project
+23:13
+set up Etc hey Google what you're
+23:14
+looking at here is my notion dashboard
+23:19
+and so what I want you to do is analyze
+23:21
+what you're seeing and tell me and
+23:24
+propose some possible improvements for
+23:27
+workflow
+23:28
+how do I simplify this are there easier
+23:31
+ways to display what I'm uh currently uh
+23:36
+showing you I go by the par method so
+23:39
+projects areas resources and archives so
+23:43
+if you can take a look at what I'm
+23:44
+showing you and give me your suggestions
+23:45
+for improving the workflows that I've
+23:48
+set up here sure you've got a notion
+23:50
+dashboard here named Rick HQ with a task
+23:52
+tracker it has several tasks listed with
+23:55
+different priorities deadlines statuses
+23:58
+notes and areas you want me to analyze
+24:01
+it and propose improvements to your
+24:02
+workflow and suggest easier ways to
+24:04
+display this information additionally I
+24:07
+see that you use the pay method which
+24:10
+includes projects areas resources and
+24:13
+archives do you want me to focus on
+24:15
+something
+24:16
+specific not necessarily I want you to
+24:18
+look at the overall how I have set up
+24:21
+the dashboard here and give me your
+24:23
+suggestions for improving the the
+24:26
+workflow that I have set up okay I
+24:29
+understand you'd like me to analyze the
+24:31
+overall setup of your notion dashboard
+24:33
+and give you suggestions for improving
+24:34
+your workflow I can definitely do that
+24:37
+let's start with the layout of your
+24:38
+dashboard the task tracker seems to be
+24:40
+in the center with favorites on the left
+24:43
+and images at the bottom do you find the
+24:45
+layout to be efficient yeah I think so
+24:47
+but I'd like to hear what you have to
+24:49
+say about it okay since you are happy
+24:51
+with the layout let's focus on the task
+24:53
+tracker itself it has columns for task
+24:56
+name priority deadline status notes and
+24:59
+area this setup is quite detailed would
+25:02
+you find it helpful to use a board view
+25:04
+to see these tasks categorized by status
+25:07
+such as too in progress and done yeah I
+25:11
+have a board view which is right here so
+25:15
+I already have that all right since you
+25:17
+already have a board view let's explore
+25:19
+other possible improvements looking at
+25:21
+the columns in your table view I see you
+25:23
+have a notes column that sometimes
+25:25
+contains external links would it be Ed
+25:28
+useful to separate the external links
+25:30
+into a dedicated links column that way
+25:33
+you could click on links directly rather
+25:35
+than having to go into the but do you
+25:37
+have any bigger suggestions for me so
+25:39
+obviously this will work with any tool
+25:41
+that you are using any project
+25:43
+management tool or maybe you've got
+25:45
+workflow diagrams that uh you've made
+25:47
+you can have the AI look at it and
+25:50
+identify bottlenecks and inefficiencies
+25:53
+and suggestions for improvements just
+25:55
+like it just did with my notion
+25:58
+dashboard and I'm absolutely going to be
+26:00
+implementing uh the suggestions that uh
+26:02
+it's making and then finally when you're
+26:03
+ready to bring your team together for
+26:05
+planning you can use the AI and the
+26:08
+screen sharing option in Gemini 2.0 to
+26:11
+share with it your brainstorming your
+26:13
+digital whiteboard or your planning tool
+26:16
+and have it make suggestions to you for
+26:18
+making improvements filling in the gaps
+26:20
+coming up with ideas basically making
+26:23
+sense of your brain dump of ideas on
+26:26
+your screen so let's do that right now
+26:28
+hey Google I'm sharing with you a
+26:30
+brainstorming board for a team project
+26:32
+where we're going to be doing an
+26:34
+okr Workshop can you sort of look at
+26:37
+what I've put together so far and the
+26:39
+team has put together for summarizing
+26:41
+the ideas that we've got there
+26:43
+identifying any missing gaps and
+26:45
+potentially helping us organize what we
+26:47
+can be doing better with this board sure
+26:50
+you're sharing a brainstorming board for
+26:51
+a team project okay it seems that you
+26:54
+would like me to help you summarize the
+26:55
+ideas identify any gaps and help
+26:58
+organize what you can do better with
+27:00
+this board is that right yes okay I'll
+27:03
+do my best to help you to start could
+27:05
+you tell me more about the project and
+27:07
+what your team is hoping to achieve with
+27:09
+this Workshop yeah we want to be rolling
+27:11
+out okrs so objectives and key results
+27:14
+to the rest of the organization so we're
+27:16
+putting together a workshop to deliver
+27:19
+to the rest of the organization and we
+27:21
+are planning that right now with what
+27:23
+you're seeing on the screen thanks so it
+27:25
+sounds like you're creating a workshop
+27:26
+to roll out okr s which are objectives
+27:29
+and key results to the rest of your
+27:31
+organization it seems like you are using
+27:34
+this whiteboard to plan out that
+27:35
+Workshop right yep okay I see it looks
+27:39
+like you've got a good start with the
+27:40
+different sections would you like me to
+27:42
+start by summarizing the ideas currently
+27:44
+on the
+27:45
+board no let's go right into how you
+27:47
+would improve this okay so you would
+27:50
+like to skip the summary and instead get
+27:52
+my recommendations on how to improve the
+27:55
+workshop plan on this board is that
+27:57
+correct yes yes okay I can do that I
+28:00
+noticed that you have sections for
+28:01
+objectives and key results have you
+28:03
+considered adding a section for
+28:05
+initiatives this would be where you list
+28:07
+out the specific projects or actions
+28:09
+that will help achieve those key results
+28:11
+so again another super powerful use case
+28:14
+when you are have a whole bunch of
+28:16
+random ideas on your screen that you
+28:18
+want to get organized you can use the AI
+28:20
+to walk you through its suggestions for
+28:23
+making improvements and better
+28:24
+organizing your ideas and filling in the
+28:26
+gaps of things that you might be missing
+28:27
+now before I wrap up I want to show you
+28:29
+one more thing inside the studio so if
+28:32
+we go back to the main screen if you
+28:34
+will here in the Google AI Studio you'll
+28:37
+notice number one that when you click
+28:39
+the drop down you do have access to all
+28:42
+the different Gemini models when you go
+28:44
+over to the stream real time which we
+28:46
+did and then also one of the new
+28:47
+features here in Gemini
+28:49
+2.0 if you want to be searching the
+28:51
+internet for example and you want to get
+28:53
+sources included in your search results
+28:56
+just come over here to the right hand
+28:57
+side here and turn on grounding you can
+28:59
+see here Source Google search so
+29:01
+whatever I search for in here is going
+29:04
+to search just as if Google would and
+29:07
+also it's going be super super fast by
+29:09
+the way and it'll give you the search
+29:11
+results with the sources linking out to
+29:15
+wherever the information is coming from
+29:18
+so as you can see here Google is back
+29:20
+they are so back and I'm really excited
+29:22
+about how quickly Google is rolling out
+29:25
+these things and really excited about
+29:27
+the possibilities that Gemini 2.0 brings
+29:29
+with the agentic features that are going
+29:32
+to be coming out in 2025 really really
+29:34
+excited for all of that again if you're
+29:35
+an online business and you're looking to
+29:37
+leverage AI to work a whole lot less and
+29:40
+increase your profit then I want invite
+29:42
+you to start a 7-Day free trial over in
+29:44
+my school Community called the AI
+29:47
+Playbook premium again I'll link to it
+29:48
+in the description below thanks so much
+29:50
+for watching and I'll see you in the
+29:52
+next video
+

@@ -1,0 +1,765 @@
+
+29 Comments
+Add a comment...
+
+Pinned by @AIJasonZ
+@AIJasonZ
+1 month ago (edited)
+Wan 2.1 model I used  in video on Replicate (With $5 Free credits): : https://replicate.com/invites/9479234e-4973-4792-aebd-2a724c13cf8b
+
+Also Join AI builder club for source code of the example: http://aibuilderclub.com
+
+5
+
+
+Reply
+
+
+@brendanautomation
+1 month ago
+This is awesome, thanks Jason!
+
+1
+
+
+Reply
+
+
+@vasiovasio
+1 month ago
+Great demo, Jason! Thank you! 
+
+1
+
+
+Reply
+
+
+@omaralrifai2794
+1 month ago
+You always drop the heat Jason 
+
+
+
+Reply
+
+
+@MugiwaraNoDeji
+1 month ago
+very easy to follow, thanks for the vid
+
+
+
+Reply
+
+
+@Malins2000
+1 month ago
+When you do it it looks soo simple... Oo'
+
+2
+
+
+Reply
+
+
+@jaysonp9426
+1 month ago
+Let's help this puts an end to Adobe
+
+1
+
+
+Reply
+
+
+@DamianoRodriguez
+1 month ago
+What's the name of the sprites GIF maker? Can you make a tutorial on how create GIFs with Gemini? A lot of people is asking but no one figured it out. (I mean to create a wrokflow without human intervention)
+
+5
+
+
+Reply
+
+
+1 reply
+
+@damianpoole2933
+1 month ago
+What is the tool at 1:11 ?
+
+1
+
+
+Reply
+
+
+@RohithS-ig4hl
+1 month ago
+how does gemini compared to other reasoning models like clade/openai? in benchmarks?
+
+1
+
+
+Reply
+
+
+@_ap__
+1 month ago
+love your videos. one request is to please don't do so many cuts while editing the videos. it gets difficult to follow.
+
+8
+
+
+Reply
+
+
+1 reply
+
+@Archcorsair
+1 month ago
+4:11 careful you've leaked your key (I hope not actually though)
+
+
+
+Reply
+
+
+@lanosUK-1
+3 weeks ago
+Try using it on any task longet than 150k tokens, it loses it's damn mind. Hallucinogenic borderline outright defiant.
+
+I feel like the 1m+ context windows are a lie. If the model is unusable beyond 150k then surely the useful context window is 150k
+
+
+
+Reply
+
+
+@white7156
+1 month ago
+Relaunch to Update
+
+1
+
+
+Reply
+
+
+·
+
+3 replies
+
+@yotubecreators47
+1 month ago
+Please delete your key it’s exposed clearly
+
+1
+
+
+Reply
+
+
+@TheMisterlordy
+1 month ago
+
+
+
+Reply
+
+
+@wmichel27
+1 month ago
+Ok Jason how much are they paying you to use Google? I cringe when I hear/see the words Gemini (Bard, never forget) and AI  especially as a developer , even worst when they are in the same conversation with OpenAi and Anthropic, DeepSeek
+
+
+
+Reply
+
+
+1 reply
+
+@ywueeee
+1 month ago
+update your browser
+
+
+
+Reply
+
+
+@UnderDogTIGER
+1 month ago
+Thanks and all. But please don't rub your mic like wild.
+
+
+
+Reply
+
+
+·
+
+1 reply
+
+@scrollop
+1 month ago
+You're smoking in the thumbnail? :/
+
+
+
+Reply
+
+
+1 reply
+In this video
+
+
+
+Timeline
+
+Chapters
+
+Transcript
+Intro to Gemini 2.0 & Wan 2.1
+0:00
+Google just released Gemini 2.0
+0:02
+experimental model which is probably the
+0:04
+first multimodel model that support both
+0:06
+image understanding and generation you
+0:09
+can upload image and give it a prompt
+0:11
+the model will respond back not just
+0:13
+text but also a generated image and we
+0:16
+already seeing loads of wild examples
+0:18
+from people where you can send image of
+0:20
+model and image of close and ask it to
+0:22
+combine into a new image you can even
+0:24
+upload image like this and ask it to
+0:26
+extract the passport photo of one of the
+0:29
+person in the image in a high fality
+0:31
+Manner and it even have accountability
+0:33
+to generate multiple images in a row so
+0:36
+that it can almost generate different
+0:38
+frames within a animation or GIF and
+0:41
+overall the image quality seems really
+0:43
+promising but most importantly this
+0:44
+experimental model is available VI the
+0:47
+API and as we know gerini model's cost
+0:50
+is extremely cheap compared with open Ai
+0:52
+and Cloud which is around 96% cheaper
+0:55
+than the GPD 40 model and we already
+0:57
+seen people building some really
+0:59
+interesting application
+1:00
+like a AI native Photoshop where users
+1:03
+can just upload image and just chat to
+1:05
+the AI and ask it to update image for it
+1:08
+or a gift maker where you can ask Gemini
+1:10
+to generate multiple frames of a
+1:12
+animation and putting together a gift
+1:14
+and those are just the beginning that's
+1:16
+why today I want to show you how can you
+1:18
+utilize Gemini model to building some
+1:20
+truly interesting use case and the
+1:21
+example I will take you through is how
+1:23
+did I use Gemini 2.0 experimental model
+1:26
+and also connect to one 2.0 which is one
+1:29
+most powerful image to video model they
+1:31
+can generate really high quality videos
+1:33
+based on image so that we can build some
+1:35
+sort of commercial products for
+1:37
+e-commerce site to Chad to Gemini to
+1:39
+generate a p shot that they are happy
+1:41
+with and then use 1 2.1 to generate
+1:44
+quick P shots without further Ado let's
+1:47
+get it firstly Let's test out how good
+1:49
+Gemini 2.0 experiment Moto actually is
+1:52
+so they do provide a few example use
+Test Gemini 2.0 Multimodal ability
+1:54
+case and prompt some of them is like
+1:55
+image editing where you can upload a
+1:57
+image course song and ask it to adding
+1:59
+some chocolate toppings as well as this
+2:01
+visual story generator that you can ask
+2:03
+Gemini to generate an actual story with
+2:06
+the image for each SC but also want to
+2:08
+try out some use case myself for I can
+2:10
+upload this image and tell it to change
+2:13
+the flag behind the man to USA flag
+2:17
+awesome so you can see the result is
+2:19
+actually extremely good even though when
+2:21
+you're look into details some details
+2:23
+face does change a little bit but it is
+2:26
+majority the same and it is able to
+2:28
+change just the spe flag and I can also
+2:30
+give another try I upload this sketch
+2:32
+and I give Pro mix this sketch into 3D
+2:35
+render colorful style and it would be
+2:37
+doing a pretty good job and I can
+2:38
+continue promp it change the hair color
+2:40
+to be red and make him smile okay so
+2:42
+this part does look a bit weird or
+2:45
+change back and then say don't change
+2:48
+the face a lot but make him smile okay
+2:52
+so this time it does looks a better cool
+2:55
+I found that normally it does really
+2:57
+high quality image generation at first
+2:58
+shot and the more more turns you have in
+3:01
+this chat lower the quality will be and
+3:03
+in the end I also really want to try the
+3:05
+gift use case so generate five frames of
+3:08
+GIF in a 2D pixel games of a dragon
+3:15
+monster cool so this looks really
+3:18
+awesome except the last two image does
+3:20
+look a little bit different but I'm
+3:22
+pretty sure I can just change the prompt
+3:23
+and make it consistent and you can
+3:26
+pretty easily build application that
+3:28
+just putting them together into a GI
+3:30
+generator so here is enough test but
+3:33
+overall what I found is that it does
+3:35
+really good job in terms of image
+3:37
+generation and keep the character
+3:39
+consistent across different images but
+3:41
+it performed less good when conversation
+3:43
+became longer basically the more you
+3:45
+prompt it the worst performance it get
+3:47
+but overall really impressive and I
+3:48
+can't totally see how this enable more
+3:51
+people to be able to do image editing
+3:53
+jobs and very likely people can build a
+3:55
+new type of Photoshop or Cana experience
+3:57
+with those real multimodal model
+3:59
+abilities but the most interesting thing
+4:01
+is let's try to use Gemini 2.0 API to
+Build E-commerce AI ad generator
+4:05
+create some prototypes so I just open up
+4:07
+a new project cursor and let's first say
+4:09
+add a EMV file to store the Gemini API
+4:12
+key here and you can get API key on
+4:14
+Google AI studio and let's create a
+4:16
+Gemini experimental. py file and first
+4:19
+they import a few libraries are going to
+4:20
+use and then create a Gemini client and
+4:22
+then I'll create a user prompt message
+4:25
+so this is the type that you use to
+4:26
+create a message history in gini and our
+4:29
+pass this conversation history to the
+4:31
+Gemini 2.0 model where the config here
+4:33
+saying the response modality should be
+4:36
+both text and image and we can probably
+4:37
+expect this to extend to audio and video
+4:40
+later and in the end depends on what
+4:41
+type of response it return if the text
+4:43
+will print out text but if the image we
+4:45
+save this image file so let's give a try
+4:48
+I will do python Gemini experimental. py
+4:52
+all right so you can see that it
+4:53
+generate an image of cat here so this
+4:55
+how you can get Gemini 2.0 to generate
+4:58
+image but what if if you want to pass a
+5:00
+image response uh into gimini as well
+5:03
+well what you can do is inside Parts
+5:05
+here you can also add a types. part from
+5:09
+bite and data equal to pass lip. pass
+5:13
+generated image.png read bites and M
+5:16
+type equal to image PNG and this should
+5:19
+get the cat image we have here and then
+5:22
+we can update prompt to make this cat
+5:26
+hair like a red color and let's try
+5:29
+again cool you can see the cast hair
+5:31
+color turned into red color so this how
+5:34
+you can utilize Gemini model to both
+5:36
+read the image and also general image
+5:39
+and next let's learn how can we turn
+5:41
+this image into a video using one 2.1
+5:43
+model so we're going to use this 1 2.1
+5:46
+model host down replicate if you don't
+5:48
+know what replicate is replicate is like
+5:50
+the model marketplace where they have
+5:52
+tons of latest AI models across image
+5:54
+Generation video generation and lar L
+5:57
+model itself you can either use those
+5:59
+existing model models directly or you
+6:00
+can find your own model with fairly
+6:02
+limited amount of data set required and
+6:04
+have a cloud service that you can call
+6:06
+anytime so after you create a replicate
+6:08
+account we can just click on this model
+6:10
+they we're going to use which is 1 12.1
+6:13
+480p and we can click on API page and
+6:16
+select Python and I will firstly add
+6:18
+replicate token to mymv file here and
+6:21
+then I'll create a new one going 2.1 and
+6:24
+I can just copy this code example here
+6:26
+the only difference is that here it is
+6:28
+using a image URL but we actually want
+6:30
+to rate a image from the local dis so I
+6:33
+turn this into a function where it can
+6:35
+open a local image pass on to this
+6:36
+specific replicate model and save the
+6:39
+video here and I can test it by running
+6:41
+this function using this cat photo that
+6:43
+we generated and give a prompt cat is
+6:45
+looking around if you haven't installed
+6:47
+replicate yet making sure to do the PIP
+6:48
+install replicate and then we can round
+6:50
+the script cool so you can see this a 5
+6:53
+Seconds video generated so we have both
+6:56
+endpoint working the last thing we want
+6:57
+to do is we'll create a quick
+7:00
+web application using streamlet that can
+7:02
+simulate the whole chat experience so
+7:04
+our first create a general function for
+7:06
+General response from Gemini we it
+7:08
+detect if is first message that user try
+7:10
+to send if it is then we'll attach the
+7:12
+image user uploaded as part of cont as
+7:15
+well as a promp and pend messages and
+7:17
+generate to return the response
+7:19
+meanwhile I will also turn the replicate
+7:21
+model calling into this generate video
+7:23
+function where it will try to call the
+7:24
+replicate model and return the video
+7:26
+pass when it's ready and also a helper
+7:28
+function to reset the video state or
+7:31
+also create a utility. py which has a
+7:33
+bunch of utility function like save the
+7:35
+binary file process upload image and
+7:38
+check if the image are duplicated and in
+7:40
+the end I use streamlit to quickly build
+7:42
+a GUI and if you don't know what
+7:44
+streamlit is it is a python framework
+7:47
+that allow you to quickly build user
+7:48
+interface and spin up a web app that you
+7:51
+can share with other so I created app.py
+7:53
+importing all the packages and the
+7:54
+library that we have set a title and we
+7:57
+will also Define list of state to keep
+7:59
+track of what kind of message has been
+8:00
+sent what image user has uploaded as
+8:02
+well as image Gemini return and videos
+8:05
+when 2.1 return now weer the title
+8:09
+Define sidebar where users can upload
+8:11
+list of image and we display the list of
+8:14
+image and update State and then create
+8:16
+two tabs with the tab one will be the
+8:18
+chat experience where user can chat to
+8:20
+Gemini to iterate the image and we'll
+8:22
+have some logic here to display the chat
+8:24
+history as well as logic after users
+8:27
+click Send message and second tab for
+8:30
+the video generation so all the image
+8:32
+that Gemini return will be displayed for
+8:34
+the user here for them to select and
+8:36
+they can basically select image that
+8:38
+they want to generate the video and once
+8:40
+the video is generated we display the
+8:42
+video here on the screen and once it
+8:44
+finished I can quickly do streamlit Rong
+8:47
+app.py and you can see here we have a
+8:49
+web app that is ready to use I can
+8:51
+upload some image I can promp it
+8:53
+generate product shot of hand wearing
+8:55
+the bracelet you can see here it
+8:57
+generate a pretty good image of a man
+8:59
+wearing this bracelet and I can also
+9:02
+prompt it to say change the hand to be
+9:04
+black man's head and now generate new
+9:06
+image with a black man hand so you can
+9:09
+see that users can use this chat
+9:10
+interface to keep iterating the phoshop
+9:13
+and if I go to video generation there
+9:15
+are two image that I can use to generate
+9:18
+video so I will select the second one
+9:20
+give a prompt a p shot at showcasing the
+9:24
+bracelet now get video generated so this
+9:27
+is how you can build a example per using
+9:29
+Gemini 2.0 API if you want to get more
+9:32
+in depth about how to use this API and
+9:34
+step-by-step process of reild the exact
+9:37
+example I showcase here you can join the
+9:39
+AI Builder Club Community and building
+9:41
+where I share tips and tricks of
+9:42
+building AI applications and Vibe coding
+9:45
+every week and for people who join right
+9:46
+now you can also get a $100 free
+9:48
+replicated credits limit to 1,000 AI bu
+9:51
+club members plus you have this
+9:53
+community of top AI Builders who are
+9:55
+launching their own AI products right
+9:56
+now so you can come and post any
+9:58
+question that challenge you have where
+10:00
+me and others will just jump on and
+10:02
+share our learnings I have put the link
+10:04
+in the description below for you to join
+10:05
+I hope you enjoy this video thank you
+10:07
+and I see you next time
+
