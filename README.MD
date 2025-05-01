@@ -1,4 +1,4 @@
-# O'Reilly Live Trainining - Getting Started with LLM Agents using LangChain
+# O'Reilly Live Trainining - Building Apps with Gemini
 
 ## Setup
 

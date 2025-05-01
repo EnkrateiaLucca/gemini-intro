@@ -14,8 +14,8 @@
 *   **Output Length (Max Tokens):**
     *   Sets the maximum number of tokens the model will generate.
     *   **Practical Tip:** Be mindful of costs, latency, and energy use (more tokens = higher). Don't rely on this alone for succinctness; adjust the prompt too. Crucial for techniques like ReAct to prevent excessive output. Too short can truncate output (e.g., invalid JSON).
-*   **Sampling Controls (Temperature, Top-K, Top-P):** These control the randomness and creativity of the output.
     *   **Temperature:**
+*   **Sampling Controls (Temperature, Top-K, Top-P):** These control the randomness and creativity of the output.
         *   Controls randomness. Lower values (~0.1-0.3) = more deterministic, focused, factual. Higher values (~0.7-1.0) = more creative, diverse, potentially unexpected.
         *   **Practical Tip:** Use `0` for tasks with a single correct answer (math, strict data extraction). Start around `0.2` for factual but slightly flexible tasks, and `0.7-0.9` for creative tasks. Be wary of very high temps causing incoherence or the "repetition loop bug".
     *   **Top-K:**
