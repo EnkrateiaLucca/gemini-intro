@@ -64,8 +64,12 @@ matplotlib-inline==0.1.7
     #   ipython
 nest-asyncio==1.6.0
     # via ipykernel
+numpy==2.2.5
+    # via pandas
 packaging==25.0
     # via ipykernel
+pandas==2.2.3
+    # via -r ./requirements/requirements.in
 parso==0.8.4
     # via jedi
 pexpect==4.9.0
@@ -87,13 +91,19 @@ pyasn1==0.6.1
 pyasn1-modules==0.4.2
     # via google-auth
 pydantic==2.11.4
-    # via google-genai
+    # via
+    #   -r ./requirements/requirements.in
+    #   google-genai
 pydantic-core==2.33.2
     # via pydantic
 pygments==2.19.1
     # via ipython
 python-dateutil==2.9.0.post0
-    # via jupyter-client
+    # via
+    #   jupyter-client
+    #   pandas
+pytz==2025.2
+    # via pandas
 pyzmq==26.4.0
     # via
     #   ipykernel
@@ -130,6 +140,8 @@ typing-extensions==4.13.2
     #   typing-inspection
 typing-inspection==0.4.0
     # via pydantic
+tzdata==2025.2
+    # via pandas
 urllib3==2.4.0
     # via requests
 wcwidth==0.2.13
