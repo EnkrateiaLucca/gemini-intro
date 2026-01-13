@@ -9,7 +9,7 @@
 - Create an environment: `conda create -n oreilly-gemini python=3.10`
 - Activate your environment with: `conda activate oreilly-gemini`
 - Install requirements with: `pip install -r requirements/requirements.txt`
-- Setup your openai [API key](https://platform.openai.com/)
+- Setup your Google [API key](https://aistudio.google.com/app/apikey)
 
 **Pip**
 
@@ -29,16 +29,16 @@
     pip install -r ./requirements/requirements.txt
     ```
 
-4. Setup your openai [API key](https://platform.openai.com/)
+4. Setup your Google [API key](https://aistudio.google.com/app/apikey)
 
 Remember to deactivate the virtual environment afterwards: `deactivate`
 
 ## Setup your .env file
 
-- Change the `.env.example` file to `.env` and add your OpenAI API key.
+- Change the `.env.example` file to `.env` and add your Google API key.
 
 ```bash
-OPENAI_API_KEY=<your openai api key>
+GOOGLE_API_KEY=<your google api key>
 ```
 
 ## To use this Environment with Jupyter Notebooks:
