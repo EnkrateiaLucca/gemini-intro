@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Storyboard Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Storyboard Generator</h1>
+        <p>Enter a story below, and Gemini will create a 6-frame storyboard for you.</p>
+        
+        <div class="input-section">
+            <textarea id="storyInput" rows="6" placeholder="Once upon a time..."></textarea>
+            <button id="generateBtn">Generate Storyboard</button>
+        </div>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <div id="storyboard" class="storyboard-grid" style="display: none;">
+            <!-- Frames will be injected here -->
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
