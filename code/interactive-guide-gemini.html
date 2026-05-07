@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Vibe Coding Guide 2026</title>
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --bg-color: #f8f9fa;
+            --text-color: #202124;
+            --card-bg: #ffffff;
+            --border: #dadce0;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background-color: var(--primary);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+        .tabs {
+            display: flex;
+            background-color: #f1f3f4;
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+        }
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: #5f6368;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .tab:hover {
+            background-color: #e8eaed;
+            color: var(--primary);
+        }
+        .tab.active {
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+            background-color: var(--card-bg);
+        }
+        .content-area {
+            padding: 30px;
+        }
+        .section {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tool-title {
+            color: var(--primary);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .badge {
+            background: #e8f0fe;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 0.75em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        ul {
+            line-height: 1.6;
+            padding-left: 20px;
+        }
+        .recommender {
+            background: #e8f0fe;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid var(--primary);
+        }
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            margin: 10px 0;
+            font-size: 1em;
+            font-family: inherit;
+        }
+        #recommendation-result {
+            margin-top: 15px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Google AI Vibe Coding (2026)</h1>
+        <p>Your interactive guide to rapid prototyping and agentic development.</p>
+    </div>
+
+    <div class="tabs">
+        <div class="tab active" onclick="showTab('ai-studio')">AI Studio</div>
+        <div class="tab" onclick="showTab('firebase')">Firebase Studio</div>
+        <div class="tab" onclick="showTab('idx')">Project IDX</div>
+        <div class="tab" onclick="showTab('antigravity')">Antigravity</div>
+    </div>
+
+    <div class="content-area">
+        <!-- AI Studio -->
+        <div id="ai-studio" class="section active">
+            <h2 class="tool-title">Google AI Studio <span class="badge">Idea Phase</span></h2>
+            <p>The fastest way to go from English to a working UI component.</p>
+            <ul>
+                <li><strong>Vibe Code Generation:</strong> Describe your app idea and instantly get React + Tailwind code to visualize your concept.</li>
+                <li><strong>Multimodal Testing:</strong> Safely test prompts utilizing Gemini 3 Pro and Nano Banana Pro models.</li>
+                <li><strong>Best For:</strong> Validating early concepts, testing AI capabilities, and building quick visual mockups without backend overhead.</li>
+            </ul>
+        </div>
+
+        <!-- Firebase Studio -->
+        <div id="firebase" class="section">
+            <h2 class="tool-title">Firebase App Prototyping <span class="badge">MVP Phase</span></h2>
+            <p>Chat your way to a deployed, full-stack Next.js application.</p>
+            <ul>
+                <li><strong>Automated Provisioning:</strong> Instantly provisions your Firebase project and Gemini API keys behind the scenes.</li>
+                <li><strong>Live Preview & Annotations:</strong> View your app in the browser, click elements to modify them, or draw annotations to request UI changes from the AI.</li>
+                <li><strong>Best For:</strong> Solo founders, designers, and developers looking to spin up an interactive, database-backed web MVP in an afternoon.</li>
+            </ul>
+        </div>
+
+        <!-- Project IDX -->
+        <div id="idx" class="section">
+            <h2 class="tool-title">Project IDX <span class="badge">Build Phase</span></h2>
+            <p>The cloud-native IDE for taking control of your codebase.</p>
+            <ul>
+                <li><strong>VS Code in the Browser:</strong> A fully-featured coding environment with deep Gemini coding assistance.</li>
+                <li><strong>Built-in Emulators:</strong> Seamlessly preview mobile apps (like Flutter) using built-in Android and iOS emulators.</li>
+                <li><strong>Best For:</strong> Multiplatform development, refining AI-generated prototypes, and teams already invested in the Google Cloud ecosystem.</li>
+            </ul>
+        </div>
+
+        <!-- Antigravity -->
+        <div id="antigravity" class="section">
+            <h2 class="tool-title">Google Antigravity <span class="badge">Scale Phase</span></h2>
+            <p>The agent-first IDE that writes the heavy logic for you.</p>
+            <ul>
+                <li><strong>Autonomous Development:</strong> Tell the agent your goal, and it will plan multi-file architecture and write the code independently.</li>
+                <li><strong>Production Readiness:</strong> Handles end-to-end browser testing and complex state management.</li>
+                <li><strong>Best For:</strong> Scaling a vibe-coded prototype into a secure, production-ready enterprise application.</li>
+            </ul>
+        </div>
+
+        <!-- Interactive Recommender -->
+        <div class="recommender">
+            <h3>Not sure where to start?</h3>
+            <p>Select your current goal to get a recommendation:</p>
+            <select id="user-goal" onchange="updateRecommendation()">
+                <option value="none">-- Choose an objective --</option>
+                <option value="idea">I just want to see if my prompt works and get a quick UI.</option>
+                <option value="mvp">I want to describe an app and have AI build and host it automatically.</option>
+                <option value="code">I have a Flutter app idea and need an IDE with mobile emulators.</option>
+                <option value="scale">I need an AI agent to autonomously test and refactor my entire codebase.</option>
+            </select>
+            <div id="recommendation-result"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTab(tabId) {
+        // Remove active class from all tabs and sections
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+
+        // Add active class to clicked tab and corresponding section
+        event.target.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    }
+
+    function updateRecommendation() {
+        const goal = document.getElementById('user-goal').value;
+        const resultDiv = document.getElementById('recommendation-result');
+        
+        switch(goal) {
+            case 'idea':
+                resultDiv.innerHTML = "👉 Use <strong>Google AI Studio</strong> to vibe code a quick visual prototype.";
+                break;
+            case 'mvp':
+                resultDiv.innerHTML = "👉 Use the <strong>Firebase App Prototyping Agent</strong> to generate a full-stack MVP.";
+                break;
+            case 'code':
+                resultDiv.innerHTML = "👉 Use <strong>Project IDX</strong> for multiplatform cloud coding.";
+                break;
+            case 'scale':
+                resultDiv.innerHTML = "👉 Use <strong>Google Antigravity</strong> to orchestrate complex development tasks.";
+                break;
+            default:
+                resultDiv.innerHTML = "";
+        }
+    }
+</script>
+
+</body>
+</html>
