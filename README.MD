@@ -79,4 +79,5 @@ Here are the notebooks available in the `code/` folder:
 
 - [`code/guide-prompting-gemini.md`](code/guide-prompting-gemini.md) - Comprehensive prompt engineering guide for Gemini
 - `code/assets-resources/` - Supporting PDFs, images, and reference materials
-- `presentation/` - Course presentation slides
+- `presentation/` - Original course presentation slides (Remark.js HTML, archived)
+- `presentation-v2/` - Updated course slides built with [open-slide](https://github.com/1weiho/open-slide). Run with `cd presentation-v2 && pnpm install && pnpm dev`
