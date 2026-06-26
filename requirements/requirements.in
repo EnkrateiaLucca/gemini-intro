@@ -1,6 +1,5 @@
 ipykernel
 google-genai
-google-generativeai
 pydantic
 pandas
 flask
