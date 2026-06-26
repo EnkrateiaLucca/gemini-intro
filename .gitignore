@@ -24,3 +24,7 @@ venv/
 # IDE
 .idea/
 .vscode/
+
+# Course process artifacts (not student-facing content)
+Plans/
+walkthrough.md
