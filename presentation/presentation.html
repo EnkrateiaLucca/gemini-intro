@@ -1,75 +1,772 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Presentation</title>
+    <title>Building AI Apps with Gemini and Google AI Studio</title>
     <meta charset="utf-8">
     <style>
-      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 
-      body { font-family: 'Droid Serif'; }
-      h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
-        font-weight: normal;
+      body {
+        font-family: 'IBM Plex Sans', Arial, sans-serif;
+        color: #2A2825;
       }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      h1, h2, h3 {
+        font-family: 'IBM Plex Sans', Arial, sans-serif;
+        font-weight: 700;
+        color: #000000;
+      }
+      .remark-code, .remark-inline-code {
+        font-family: 'JetBrains Mono', Courier, monospace;
+      }
+      .remark-slide-content {
+        background-color: #F5F3EB;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        color: #2A2825;
+        overflow: hidden;
+      }
+      .remark-slide-content.code-heavy {
+        padding: 0.5em 1em;
+      }
     </style>
   </head>
   <body>
     <textarea id="source">
-        class: center, middle
-        # Building AI Apps with Gemini and Google AI Studio
+class: center, middle
 
-        ## Lucas Soares
+# Building AI Apps with Gemini and Google AI Studio
 
-        ### 05/01/2025 
-        ---
-        # Agenda
-        1. Introduction to Gemini
-        2. Gemini Interface & Google AI Studio Walkthrough
-        3. Prototyping & Building Gemini Apps
-        4. Agentic Workflows with Gemini
-        
-        ---
-        class: center, middle
+## Lucas Soares
+### Automata Learning Lab · 2026
 
-        # Introduction to Gemini
+---
 
-        ---
-        
-        <span style="color: red">GEMINI REPORT SUMMARY IN 3-5 SLIDES</span>
+# What we'll cover
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">AGENDA</p>
 
-        ---
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0;">
+<div style="background: #E8F1F9; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<p><strong>01 — Introduction to Gemini</strong><br>The model family and what changed with Gemini 3</p>
+<p><strong>02 — Google AI Studio Workflow</strong><br>Playground → Build → SDK → Vertex</p>
+</div>
+<div style="background: #EEF5EC; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<p><strong>03 — Five Lessons from Gemini 3</strong><br>Multimodality, long context, grounding, generative UI, context engineering</p>
+<p><strong>04 — Building &amp; Agentic Workflows</strong><br>Demos, the SDK, and where this is going</p>
+</div>
+</div>
 
-        ---
-        class: center, middle
-        
-        <h1>
-        <span style="background-color: lightgreen">
-           Demo: Gemini Interface & Google AI Studio Walkthrough
-        </span>
-        </h1>
+---
 
-        ---
-        class: center, middle
-        
-        # Prototyping & Building Gemini Apps
-        
-        ---
-        class: center, middle
+class: center, middle
 
-        # Agentic Workflows with Gemini
+<div style="font-size: 4em; color: #ddd; font-family: 'IBM Plex Sans';">01</div>
 
-        ---
-        class: center, middle
-        
-        <h1>
-        <span style="background-color: lightgreen">
-            Whiteboard & Code Demo: Building Agents with Gemini
-        </span>
-        </h1>
+# Introduction to Gemini
 
+*The model family, the context, and what actually changed with Gemini 3*
+
+---
+
+class: center, middle
+
+<h1>
+<span style="background-color: #7CB56B; color: #FFFFFF; padding: 8px 16px;">
+  DEMO — Whiteboard: What is Gemini?
+</span>
+</h1>
+
+Google's frontier multimodal model family
+
+---
+
+# What is Gemini
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">WHAT IS GEMINI</p>
+
+- **Native multimodality** — One model, one call: text + image + video + audio
+
+- **Long context** — 1M+ tokens — used as working memory, not storage
+
+- **Tool-using by default** — Search grounding, code execution, URL context, function calling
+
+- **Family of sizes** — Pro · Flash · Flash-Lite — pick by cost/latency/quality
+
+---
+
+# Which model to use
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">MODEL PICKER</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0;">
+<div style="background: #E8F1F9; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+<strong style="color: #000000;">Gemini 3.5 Flash</strong>
+<span style="font-size: 11px; background: #7CB56B; color: #fff; padding: 2px 8px; font-weight: 600;">DEFAULT</span>
+</div>
+<p style="font-size: 13px; color: #5C5750; margin: 0;">GA at I/O 2026. Thinking model, runs on the free tier — your workhorse.</p>
+</div>
+<div style="background: #EEF5EC; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+<strong style="color: #000000;">Gemini 2.5 Flash-Lite</strong>
+<span style="font-size: 11px; background: #5B9BD5; color: #fff; padding: 2px 8px; font-weight: 600;">BUDGET</span>
+</div>
+<p style="font-size: 13px; color: #5C5750; margin: 0;">Cheapest and fastest, no thinking overhead — high-volume work.</p>
+</div>
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+<strong style="color: #000000;">Gemini 2.5 Flash</strong>
+<span style="font-size: 11px; background: #5B9BD5; color: #fff; padding: 2px 8px; font-weight: 600;">STABLE</span>
+</div>
+<p style="font-size: 13px; color: #5C5750; margin: 0;">Previous-gen default — a frozen, proven string if you need stability.</p>
+</div>
+<div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+<strong style="color: #000000;">Gemini 3.1 Pro</strong>
+<span style="font-size: 11px; background: #E86B5A; color: #fff; padding: 2px 8px; font-weight: 600;">PREVIEW · PAID</span>
+</div>
+<p style="font-size: 13px; color: #5C5750; margin: 0;">Strongest reasoning — but zero free quota, billing required.</p>
+</div>
+</div>
+
+---
+
+class: center, middle
+
+# AI work is now **input design** work.
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">COURSE THESIS</p>
+
+Multimodal inputs · curated context · specified output format.
+
+Effort moves away from prompt-craft toward **designing what the model sees and emits.**
+
+---
+
+class: center, middle
+
+<div style="font-size: 4em; color: #ddd; font-family: 'IBM Plex Sans';">02</div>
+
+# The AI Studio Workflow
+
+*How real builders actually go from idea to deployed prototype*
+
+---
+
+# AI Studio at a glance
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">AISTUDIO.GOOGLE.COM</p>
+
+1. **Playground** — System instructions, model picker, parameters, tool toggles. Where you start.
+2. **Build** — Vibe coding: scaffold a React + Node app from a prompt. Annotation Mode FTW.
+3. **Stream Realtime** — Live API: voice / webcam / screen-share with low-latency bidirectional audio.
+4. **Generate Media** — Imagen, Veo, Lyria RealTime, native speech.
+5. **Library** — Saved prompts and projects. ⚠️ no version control — export to Git.
+
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px; margin-top: 16px;">
+<strong>Note:</strong> the Tune section is effectively defunct — current Gemini models aren't fine-tunable in the UI.
+</div>
+
+---
+
+class: center, middle
+
+<h1>
+<span style="background-color: #7CB56B; color: #FFFFFF; padding: 8px 16px;">
+  DEMO — AI Studio Walkthrough
+</span>
+</h1>
+
+Playground · Build · Stream Realtime · Generate Media · Library
+
+---
+
+# From idea to deployed prototype
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">THE CANONICAL WORKFLOW</p>
+
+<div style="display: flex; justify-content: center; align-items: stretch; gap: 10px; margin: 32px 0;">
+<div style="background: #FBEAE7; border: 2px solid #000000; padding: 16px; border-radius: 0px; text-align: center; width: 120px;">
+<div style="font-size: 1.8em; margin-bottom: 8px; color: #E86B5A;">1</div>
+<h4 style="margin: 8px 0; color: #000000; font-weight: 600;">Ideate</h4>
+<p style="font-size: 12px; color: #5C5750; margin: 0;">Playground<br>system instruction<br>tool toggles</p>
+</div>
+<div style="font-size: 24px; color: #2A2825; align-self: center;">&#8594;</div>
+<div style="background: #FEF8E6; border: 2px solid #000000; padding: 16px; border-radius: 0px; text-align: center; width: 120px;">
+<div style="font-size: 1.8em; margin-bottom: 8px; color: #F5C542;">2</div>
+<h4 style="margin: 8px 0; color: #000000; font-weight: 600;">Scaffold</h4>
+<p style="font-size: 12px; color: #5C5750; margin: 0;">Build tab<br>natural-language prompt<br>or gallery fork</p>
+</div>
+<div style="font-size: 24px; color: #2A2825; align-self: center;">&#8594;</div>
+<div style="background: #EEF5EC; border: 2px solid #000000; padding: 16px; border-radius: 0px; text-align: center; width: 120px;">
+<div style="font-size: 1.8em; margin-bottom: 8px; color: #7CB56B;">3</div>
+<h4 style="margin: 8px 0; color: #000000; font-weight: 600;">Harden</h4>
+<p style="font-size: 12px; color: #5C5750; margin: 0;">Structured Output<br>JSON schema<br>= the contract</p>
+</div>
+<div style="font-size: 24px; color: #2A2825; align-self: center;">&#8594;</div>
+<div style="background: #E8F1F9; border: 2px solid #000000; padding: 16px; border-radius: 0px; text-align: center; width: 120px;">
+<div style="font-size: 1.8em; margin-bottom: 8px; color: #5B9BD5;">4</div>
+<h4 style="margin: 8px 0; color: #000000; font-weight: 600;">Get Code</h4>
+<p style="font-size: 12px; color: #5C5750; margin: 0;">Get Code → SDK<br>google-genai<br>the new SDK</p>
+</div>
+<div style="font-size: 24px; color: #2A2825; align-self: center;">&#8594;</div>
+<div style="background: #FBEAE7; border: 2px solid #000000; padding: 16px; border-radius: 0px; text-align: center; width: 120px;">
+<div style="font-size: 1.8em; margin-bottom: 8px; color: #E86B5A;">5</div>
+<h4 style="margin: 8px 0; color: #000000; font-weight: 600;">Deploy</h4>
+<p style="font-size: 12px; color: #5C5750; margin: 0;">Cloud Run<br>or migrate to<br>Vertex AI</p>
+</div>
+</div>
+
+---
+
+# Patterns power users actually use
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">PLAYGROUND</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0; font-size: 14px;">
+<div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 12px;">
+<strong>System instruction</strong><br><span style="color: #5C5750;">Carries role + explicit prohibitions ("do not speculate") — measurably reduces hallucinations</span>
+</div>
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 12px;">
+<strong>Structured Output toggle</strong><br><span style="color: #5C5750;">JSON schema, not prose. Gemini quirk: fields are OPTIONAL by default — tag required ones</span>
+</div>
+<div style="background: #EEF5EC; border: 2px solid #000000; border-radius: 0px; padding: 12px;">
+<strong>Thinking level</strong><br><span style="color: #5C5750;">Sidebar dial most beginners miss. "high" = materially better SVG/complex reasoning</span>
+</div>
+<div style="background: #E8F1F9; border: 2px solid #000000; border-radius: 0px; padding: 12px;">
+<strong>Tool toggles</strong><br><span style="color: #5C5750;">Search · Code Execution · URL Context · Function Calling — checkboxes, not separate APIs</span>
+</div>
+<div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 12px;">
+<strong>Multimodal drop-in</strong><br><span style="color: #5C5750;">PDFs, videos, screenshots. No preprocessing. Long-audio: compress with ffmpeg if needed</span>
+</div>
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 12px;">
+<strong>Get Code</strong><br><span style="color: #5C5750;">Two clicks → working Python/JS/REST snippet using google-genai</span>
+</div>
+</div>
+
+---
+
+# Logan Kilpatrick's prototyping tricks
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">POWER-USER MOVES</p>
+
+**Clone-then-build**
+Screenshot an existing UI · drop it in · type "clone this UI exactly" · iterate from the scaffold rather than from zero.
+
+**Single-prompt design exploration**
+"Add a widget so I can click through these styles: [5 options]"
+Explore variants without spawning N sessions.
+
+**Connect Drive early**
+AI Studio sessions don't persist by default — connect to Google Drive or you'll lose your work.
+
+---
+
+class: center, middle
+
+<h1>
+<span style="background-color: #7CB56B; color: #FFFFFF; padding: 8px 16px;">
+  DEMO — Nano Banana Pro in the Playground
+</span>
+</h1>
+
+Diagrams, dashboards, infographics, brand collateral
+
+---
+
+# "Vibe coding" — what it really is
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">BUILD MODE</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0;">
+<div style="background: #E8F1F9; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<h4 style="margin-top: 0; color: #000000;">What you get</h4>
+<ul style="font-size: 15px; color: #2A2825;">
+<li>React + Node.js scaffold (Next.js / Angular as options)</li>
+<li>Three-panel IDE: agent reasoning · code · live preview</li>
+<li>Full npm; agent auto-installs deps &amp; self-corrects type errors</li>
+<li><strong>Annotation Mode:</strong> click on the preview, type the change</li>
+</ul>
+</div>
+<div style="background: #EEF5EC; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<h4 style="margin-top: 0; color: #000000;">Deployment exits</h4>
+<ul style="font-size: 15px; color: #2A2825;">
+<li>Download ZIP → take to local editor</li>
+<li>Push to GitHub → real version control</li>
+<li>Deploy to Cloud Run → one-click, secrets stay server-side, scale-to-zero pricing</li>
+</ul>
+</div>
+</div>
+
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<strong>Reality check:</strong> "pair programming with a fast senior dev." Prototyping accelerator, not production deployment.
+</div>
+
+---
+
+class: center, middle
+
+<h1>
+<span style="background-color: #7CB56B; color: #FFFFFF; padding: 8px 16px;">
+  DEMO — Build mode: fork &amp; deploy
+</span>
+</h1>
+
+Annotation Mode → Cloud Run
+
+---
+
+# What's a UI toggle in AI Studio
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">NATIVE TOOLS</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0;">
+<div style="background: #E8F1F9; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<ul style="font-size: 15px; color: #2A2825;">
+<li>✓ <strong>Search Grounding</strong> — cite sources, real-time facts</li>
+<li>✓ <strong>Code Execution</strong> — sandboxed Python in the loop</li>
+<li>✓ <strong>URL Context</strong> — reads URLs in your prompt</li>
+<li>✓ <strong>Function Calling</strong> — tools you define</li>
+</ul>
+</div>
+<div style="background: #EEF5EC; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<ul style="font-size: 15px; color: #2A2825;">
+<li>✓ <strong>Files API</strong> — PDFs, videos, audio</li>
+<li>✓ <strong>Live API</strong> — voice/video/screen, WebSocket</li>
+<li>✓ <strong>Imagen / Veo / Lyria</strong> — image, video, music</li>
+<li>✓ <strong>MCP</strong> — Maps example bundled</li>
+</ul>
+</div>
+</div>
+
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px; margin-top: 8px;">
+Almost everything is a checkbox now — convenience vs. programmatic control, not access.
+</div>
+
+---
+
+# The SDK trap
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">CRITICAL SDK MIGRATION</p>
+
+<div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 12px 16px; margin-bottom: 20px;">
+<span style="color: #E86B5A; font-weight: bold;">⚠ Half the tutorials online use <code>google-generativeai</code> — deprecated Nov 2025, broken on Live API, Veo, and Files API v2. Use only <code>google-genai</code>.</span>
+</div>
+
+<div style="background: #EEF5EC; padding: 20px; border: 2px solid #000000; border-radius: 0px;">
+<h4 style="margin-top: 0; color: #000000;">Use this — what AI Studio exports</h4>
+<pre style="background: #E8E4DC; color: #2A2825; font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 16px; margin: 12px 0 0; border-radius: 0px; white-space: pre;"><code>from google import genai
+
+client = genai.Client()
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents="Hi",
+)</code></pre>
+</div>
+
+---
+
+class: center, middle
+
+<h1>
+<span style="background-color: #7CB56B; color: #FFFFFF; padding: 8px 16px;">
+  DEMO — Get Code → google-genai SDK
+</span>
+</h1>
+
+From AI Studio prompt to a Python notebook
+
+---
+
+# The data-privacy switch
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">DATA &amp; PRIVACY</p>
+
+| | AI Studio (free) | AI Studio (Cloud Billing on) | Vertex AI |
+|---|---|---|---|
+| Trains on prompts | Yes | No | No (default) |
+| Reviewers see data | Possible | No | No |
+| Compliance | — | Limited | HIPAA / SOC2 |
+| Setup | Zero | Low | High (GCP/IAM) |
+
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px; margin-top: 16px;">
+Enabling Cloud Billing on the API key flips training off — even within free quotas.
+</div>
+
+---
+
+# AI Studio → Vertex AI
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">WHEN TO GRADUATE</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0;">
+<div style="background: #E8F1F9; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<ul style="font-size: 15px; color: #2A2825;">
+<li>Hit 429s on free key</li>
+<li>Org requires IAM auth</li>
+<li>Region / data residency</li>
+<li>MLOps tooling</li>
+</ul>
+</div>
+<div style="background: #EEF5EC; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<ul style="font-size: 15px; color: #2A2825;">
+<li>Need an SLA</li>
+<li>Regulated industry</li>
+<li>Plaintext API keys are out</li>
+<li>Model Registry, Evaluation, Monitoring</li>
+</ul>
+</div>
+</div>
+
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px; margin-top: 8px;">
+<strong>Good news:</strong> SDK migration is trivial — both sides use unified google-genai. One-line endpoint swap.
+</div>
+
+---
+
+# What to watch out for
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">GOTCHAS</p>
+
+**Hidden thinking tokens** — 3.5 Flash and the 3.x line are *thinking* models. A bare `17 × 23` prompt billed 404 invisible reasoning tokens on top of 376 of output — half the bill you never see. Watch `usage_metadata.thoughts_token_count`; set `thinking_budget=0` to turn it off.
+
+**No prompt version control** — AI Studio is a scratch pad. Export to Git/notebooks immediately.
+
+**Pro tiers are paid-only** — On a free key, `gemini-2.5-pro` and `gemini-3.1-pro-preview` return `429 — limit: 0`: zero free quota. Prototype on Flash; the strongest model isn't the free one.
+
+**Product fragmentation** — AI Studio · Vertex AI Studio · Firebase Studio · Gemini CLI · Jules · Opal · Stitch · Colab AI · NotebookLM
+
+**"Get Code" is a starting point** — Error handling, streaming, auth all need work before production.
+
+---
+
+class: center, middle
+
+<div style="font-size: 4em; color: #ddd; font-family: 'IBM Plex Sans';">03</div>
+
+# Five Lessons from Gemini 3
+
+*What changed — and how each shift translates to API/AI Studio capability*
+
+---
+
+# What actually changed
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">THE FIVE LESSONS</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 16px 0;">
+<div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<div style="font-size: 1.6em; margin-bottom: 4px; color: #E86B5A;">01</div>
+<strong style="color: #000000;">Unified multimodality</strong>
+<p style="font-size: 13px; color: #5C5750; margin: 6px 0 0;">One model, one call</p>
+</div>
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<div style="font-size: 1.6em; margin-bottom: 4px; color: #F5C542;">02</div>
+<strong style="color: #000000;">Long context = working memory</strong>
+<p style="font-size: 13px; color: #5C5750; margin: 6px 0 0;">Not a storage bin</p>
+</div>
+<div style="background: #EEF5EC; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<div style="font-size: 1.6em; margin-bottom: 4px; color: #7CB56B;">03</div>
+<strong style="color: #000000;">Grounding</strong>
+<p style="font-size: 13px; color: #5C5750; margin: 6px 0 0;">Turn scattered data into a knowledge base</p>
+</div>
+<div style="background: #E8F1F9; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<div style="font-size: 1.6em; margin-bottom: 4px; color: #5B9BD5;">04</div>
+<strong style="color: #000000;">Generative UI</strong>
+<p style="font-size: 13px; color: #5C5750; margin: 6px 0 0;">Output format = the surface</p>
+</div>
+<div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<div style="font-size: 1.6em; margin-bottom: 4px; color: #E86B5A;">05</div>
+<strong style="color: #000000;">Context > prompt engineering</strong>
+<p style="font-size: 13px; color: #5C5750; margin: 6px 0 0;">Design what the model sees</p>
+</div>
+<div style="background: #F5F3EB; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<div style="font-size: 1.6em; margin-bottom: 4px; color: #2A2825;">+1</div>
+<strong style="color: #000000;">Reduced sycophancy</strong>
+<p style="font-size: 13px; color: #5C5750; margin: 6px 0 0;">Ask for critique, not approval</p>
+</div>
+</div>
+
+---
+
+# Unified multimodality
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">LESSON 01</p>
+
+One model, one call. Video + audio + image processed jointly — not as a pipeline of single-modality tools.
+
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px; margin: 16px 0;">
+<strong>Demo prompt</strong><br>
+"I just recorded a walkthrough on toggling smart features in Gmail. Watch the recording and turn it into a clean step-by-step checklist I can hand to a new hire."
+</div>
+
+**Use cases**
+- Screen recording → SOP checklist
+- User-interview video → "list every pause > 3s and what was on screen"
+- Dense PDF → infographic via Nano Banana Pro
+
+---
+
+class: center, middle
+
+<h1>
+<span style="background-color: #7CB56B; color: #FFFFFF; padding: 8px 16px;">
+  DEMO — Multimodality: video → SOP
+</span>
+</h1>
+
+One model, one call. No frame extraction.
+
+---
+
+# Long context = working memory
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">LESSON 02</p>
+
+The 1M+ window already existed. What changed is retrieval quality — ~60% better at deep needle-in-haystack reasoning.
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0;">
+<div style="background: #FBEAE7; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<h4 style="margin-top: 0; color: #000000;">Storage bin (wrong)</h4>
+<p style="font-size: 15px; color: #5C5750; font-style: italic;">"Summarize these documents."</p>
+<p style="font-size: 14px; color: #2A2825;">Generic summary. The model glances. Information sits in the window unused.</p>
+</div>
+<div style="background: #EEF5EC; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<h4 style="margin-top: 0; color: #000000;">Working memory (right)</h4>
+<p style="font-size: 15px; color: #5C5750; font-style: italic;">"Find the three biggest discrepancies between management strategy in the earnings call and what the financial PDFs actually show."</p>
+<p style="font-size: 14px; color: #2A2825;">Cross-source reasoning. The model connects evidence buried in different files.</p>
+</div>
+</div>
+
+---
+
+class: center, middle
+
+<h1>
+<span style="background-color: #7CB56B; color: #FFFFFF; padding: 8px 16px;">
+  DEMO — Long context as working memory
+</span>
+</h1>
+
+Same uploads, two prompts: "summarize" vs "find contradictions"
+
+---
+
+# Grounding
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">LESSON 03</p>
+
+Workspace, Search, URL Context, your own data — turn scattered digital history into a single queryable knowledge base.
+
+**Power combo: URL Context + Search grounding**
+
+Search finds relevant URLs · URL Context reads them · lightweight RAG substitute with zero infra.
+
+*(TDS: "another nail in RAG's coffin" for prototypes.)*
+
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px; margin-top: 16px;">
+Rule of thumb: if you'd normally spend &gt; 10 minutes hunting through emails or docs to reconstruct context, ask Gemini first.
+</div>
+
+---
+
+class: center, middle
+
+<h1>
+<span style="background-color: #7CB56B; color: #FFFFFF; padding: 8px 16px;">
+  DEMO — Grounding with Search + URL Context
+</span>
+</h1>
+
+A lightweight RAG substitute, zero infra
+
+---
+
+# Generative UI
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">LESSON 04</p>
+
+Screen Spot Pro: 11.4% → 72.7%. Output format becomes the artifact — calculators, dashboards, quizzes. The surface designs around the task.
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0;">
+<div style="background: #FBEAE7; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<h4 style="margin-top: 0; color: #000000;">Before</h4>
+<p style="font-size: 15px; color: #5C5750; font-style: italic;">"Compare these 3 platforms."</p>
+<p style="font-size: 14px; color: #2A2825;">→ static comparison table</p>
+</div>
+<div style="background: #EEF5EC; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<h4 style="margin-top: 0; color: #000000;">After</h4>
+<p style="font-size: 15px; color: #5C5750; font-style: italic;">"Compare these 3 platforms. Give me a dashboard with a slider for budget and a toggle for region."</p>
+<p style="font-size: 14px; color: #2A2825;">→ interactive HTML tool with revenue calculator, break-even tab, recommendation quiz</p>
+</div>
+</div>
+
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px; margin-top: 8px;">
+<strong>Pro tip:</strong> explicitly request the controls you want — sliders, toggles, filters.
+</div>
+
+---
+
+class: center, middle
+
+<h1>
+<span style="background-color: #7CB56B; color: #FFFFFF; padding: 8px 16px;">
+  DEMO — Generative UI: an interactive HTML tool
+</span>
+</h1>
+
+Plain text vs. dashboard with sliders and toggles
+
+---
+
+# Context engineering > prompt engineering
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">LESSON 05</p>
+
+Gemini can guess your tone, format, and length. It can't guess your facts. Spend effort on context, not phrasing.
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0;">
+<div style="background: #FBEAE7; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<h4 style="margin-top: 0; color: #000000;">Old style</h4>
+<p style="font-size: 14px; color: #5C5750; font-style: italic;">"Act as a punchy thought-leadership writer. Voice: confident but not arrogant. Use 2-3 short paragraphs..."</p>
+<p style="font-size: 13px; color: #2A2825;">Adjective soup. Generic results.</p>
+</div>
+<div style="background: #EEF5EC; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<h4 style="margin-top: 0; color: #000000;">New style</h4>
+<p style="font-size: 14px; color: #5C5750; font-style: italic;">"Here are 3 of my VP's previous LinkedIn posts. Based on these, rewrite this Q4 report as a LinkedIn post."</p>
+<p style="font-size: 13px; color: #2A2825;">Ground-truth examples. Output sounds like the VP.</p>
+</div>
+</div>
+
+---
+
+class: center, middle
+
+<h1>
+<span style="background-color: #7CB56B; color: #FFFFFF; padding: 8px 16px;">
+  DEMO — Context engineering: VP LinkedIn voice
+</span>
+</h1>
+
+Three previous posts as ground-truth examples
+
+---
+
+# Reduced sycophancy
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">BONUS LESSON</p>
+
+Google explicitly trained Gemini 3 to push back. Use it.
+
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px; margin: 16px 0;">
+<strong>Red-team prompt</strong><br>
+"Identify storytelling weaknesses and logical contradictions between the sections of this report. Predict the pushback I'd receive from leadership."
+</div>
+
+Ask for critique, not approval. Adopt a critical persona for sharper feedback.
+
+---
+
+class: center, middle
+
+<h1>
+<span style="background-color: #7CB56B; color: #FFFFFF; padding: 8px 16px;">
+  DEMO — Red-team your own deck
+</span>
+</h1>
+
+Find storytelling weaknesses and contradictions
+
+---
+
+class: center, middle
+
+<div style="font-size: 4em; color: #ddd; font-family: 'IBM Plex Sans';">04</div>
+
+# Building &amp; Agentic Workflows
+
+*Demos, the SDK, and where this is going*
+
+---
+
+# Fork from the gallery
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">AISTUDIO.GOOGLE.COM/APPS/BUNDLED</p>
+
+Bundled apps are the intended starting point — preview, fork, modify, deploy.
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0;">
+<div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<h4 style="margin-top: 0; color: #000000;">GeoSeeker</h4>
+<p style="font-size: 14px; color: #5C5750; margin: 0;">Spatial understanding · location reasoning</p>
+</div>
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<h4 style="margin-top: 0; color: #000000;">Maps Travel Planner</h4>
+<p style="font-size: 14px; color: #5C5750; margin: 0;">Maps + Gemini → trip planning</p>
+</div>
+<div style="background: #EEF5EC; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<h4 style="margin-top: 0; color: #000000;">Structured Data Extractor</h4>
+<p style="font-size: 14px; color: #5C5750; margin: 0;">Forms / docs → JSON in one click</p>
+</div>
+<div style="background: #E8F1F9; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<h4 style="margin-top: 0; color: #000000;">Nano Banana Pro</h4>
+<p style="font-size: 14px; color: #5C5750; margin: 0;">Diagrams · dashboards · brand collateral · infographics</p>
+</div>
+</div>
+
+---
+
+class: center, middle
+
+<h1>
+<span style="background-color: #7CB56B; color: #FFFFFF; padding: 8px 16px;">
+  DEMO — Bundled apps tour
+</span>
+</h1>
+
+GeoSeeker · Maps Travel Planner · Structured Data Extractor
+
+---
+
+# Visual communication just became machine-readable
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">NANO BANANA PRO</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0;">
+<div style="background: #E8F1F9; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<h4 style="margin-top: 0; color: #000000;">Diagrams &amp; Layouts</h4>
+<p style="font-size: 14px; color: #2A2825;">Flowcharts · Animated diagrams · Dashboards · Editorial spreads · Blueprints · Structured one-pagers</p>
+<h4 style="color: #000000;">Data Visualization</h4>
+<p style="font-size: 14px; color: #2A2825;">Visualize academic papers · Earnings reports → charts · Representation transforms</p>
+</div>
+<div style="background: #EEF5EC; padding: 16px; border: 2px solid #000000; border-radius: 0px;">
+<h4 style="margin-top: 0; color: #000000;">Marketing &amp; Brand</h4>
+<p style="font-size: 14px; color: #2A2825;">Brand palettes &amp; logos · Concept art · Brand collateral</p>
+<h4 style="color: #000000;">Agentic Workflows</h4>
+<p style="font-size: 14px; color: #2A2825;">Agents generating diagrams · Visual PDF summaries · Updating onboarding assets</p>
+</div>
+</div>
+
+---
+
+class: center, middle
+
+<div style="font-size: 4em; color: #ddd; font-family: 'IBM Plex Sans';">05</div>
+
+# Agentic Workflows with Gemini
+
+---
+
+class: center, middle
+
+<h1>
+<span style="background-color: #7CB56B; color: #FFFFFF; padding: 8px 16px;">
+  DEMO — Building agents with Gemini
+</span>
+</h1>
+
+Whiteboard + code
+
+---
+
+class: center, middle
+
+# Design the inputs.
+# Specify the outputs.
+# Trust the model.
+
+<p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">CLOSING THESIS</p>
+
+---
+
+class: center, middle
+
+# Resources &amp; References
+
+<ul style="font-size: 18px; line-height: 2.4; padding-left: 24px; text-align: left; display: inline-block;">
+<li><a href="https://github.com/EnkrateiaLucca/oreilly-live-trainings" style="color: #5C5750;">github.com/EnkrateiaLucca/oreilly-live-trainings</a></li>
+<li><a href="https://ai.google.dev" style="color: #5C5750;">ai.google.dev</a></li>
+<li><a href="https://aistudio.google.com" style="color: #5C5750;">aistudio.google.com</a></li>
+</ul>
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
