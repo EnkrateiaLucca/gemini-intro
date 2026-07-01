@@ -4,3 +4,4 @@ pydantic
 pandas
 flask
 pillow
+python-dotenv

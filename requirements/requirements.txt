@@ -113,6 +113,8 @@ python-dateutil==2.9.0.post0
     # via
     #   jupyter-client
     #   pandas
+python-dotenv==1.2.2
+    # via -r ./requirements/requirements.in
 pytz==2025.2
     # via pandas
 pyzmq==26.4.0
