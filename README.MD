@@ -47,7 +47,7 @@ Remember to deactivate the virtual environment afterwards: `deactivate`
 - Change the `.env.example` file to `.env` and add your Google API key.
 
 ```bash
-GOOGLE_API_KEY=<your google api key>
+GEMINI_API_KEY=<your google api key>
 ```
 
 ## To use this Environment with Jupyter Notebooks:
