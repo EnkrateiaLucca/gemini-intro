@@ -436,7 +436,7 @@ Enabling Cloud Billing on the API key flips training off — even within free qu
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0;">
 <div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 14px;">
 <h4 style="margin: 0 0 6px; color: #000000;">Hidden thinking tokens</h4>
-<p style="font-size: 13px; color: #2A2825; margin: 0;">Flash thinks by default — a short prompt billed 404 invisible reasoning tokens. Set <code>thinking_budget=0</code> to disable.</p>
+<p style="font-size: 13px; color: #2A2825; margin: 0;">Flash thinks by default (medium) — a short prompt can bill hundreds of invisible reasoning tokens. On Gemini 3.x you dial it with <code>thinking_level</code> (<code>low</code>/<code>medium</code>/<code>high</code>); there's no <code>thinking_budget=0</code> off-switch anymore — <code>low</code> minimizes it.</p>
 </div>
 <div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 14px;">
 <h4 style="margin: 0 0 6px; color: #000000;">No prompt version control</h4>
