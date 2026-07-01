@@ -107,17 +107,17 @@ Google's frontier multimodal model family
 </div>
 <div style="background: #EEF5EC; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
 <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
-<strong style="color: #000000;">Gemini 2.5 Flash-Lite</strong>
+<strong style="color: #000000;">Gemini 3.1 Flash-Lite</strong>
 <span style="font-size: 11px; background: #5B9BD5; color: #fff; padding: 2px 8px; font-weight: 600;">BUDGET</span>
 </div>
-<p style="font-size: 13px; color: #5C5750; margin: 0;">Cheapest and fastest, no thinking overhead — high-volume work.</p>
+<p style="font-size: 13px; color: #5C5750; margin: 0;">Cheapest and fastest — high-volume, latency-sensitive work.</p>
 </div>
 <div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
 <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
-<strong style="color: #000000;">Gemini 2.5 Flash</strong>
-<span style="font-size: 11px; background: #5B9BD5; color: #fff; padding: 2px 8px; font-weight: 600;">STABLE</span>
+<strong style="color: #000000;">Gemini 3.1 Flash Image</strong>
+<span style="font-size: 11px; background: #9B72B0; color: #fff; padding: 2px 8px; font-weight: 600;">IMAGES</span>
 </div>
-<p style="font-size: 13px; color: #5C5750; margin: 0;">Previous-gen default — a frozen, proven string if you need stability.</p>
+<p style="font-size: 13px; color: #5C5750; margin: 0;">Nano Banana — fast image generation &amp; editing (<code>gemini-3.1-flash-image</code>).</p>
 </div>
 <div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
 <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
@@ -372,12 +372,29 @@ From AI Studio prompt to a Python notebook
 # The data-privacy switch
 <p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">DATA &amp; PRIVACY</p>
 
-| | AI Studio (free) | AI Studio (Cloud Billing on) | Vertex AI |
-|---|---|---|---|
-| Trains on prompts | Yes | No | No (default) |
-| Reviewers see data | Possible | No | No |
-| Compliance | — | Limited | HIPAA / SOC2 |
-| Setup | Zero | Low | High (GCP/IAM) |
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 20px 0;">
+<div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<h4 style="margin-top: 0; color: #000000; border-bottom: 1px solid #000; padding-bottom: 8px;">AI Studio (free)</h4>
+<p style="font-size: 13px; color: #2A2825; margin: 6px 0;"><strong>Trains on prompts:</strong> <span style="color: #E86B5A;">Yes</span></p>
+<p style="font-size: 13px; color: #2A2825; margin: 6px 0;"><strong>Reviewers see data:</strong> <span style="color: #E86B5A;">Possible</span></p>
+<p style="font-size: 13px; color: #2A2825; margin: 6px 0;"><strong>Compliance:</strong> —</p>
+<p style="font-size: 13px; color: #2A2825; margin: 6px 0;"><strong>Setup:</strong> Zero</p>
+</div>
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<h4 style="margin-top: 0; color: #000000; border-bottom: 1px solid #000; padding-bottom: 8px;">AI Studio (Cloud Billing on)</h4>
+<p style="font-size: 13px; color: #2A2825; margin: 6px 0;"><strong>Trains on prompts:</strong> No</p>
+<p style="font-size: 13px; color: #2A2825; margin: 6px 0;"><strong>Reviewers see data:</strong> No</p>
+<p style="font-size: 13px; color: #2A2825; margin: 6px 0;"><strong>Compliance:</strong> Limited</p>
+<p style="font-size: 13px; color: #2A2825; margin: 6px 0;"><strong>Setup:</strong> Low</p>
+</div>
+<div style="background: #EEF5EC; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
+<h4 style="margin-top: 0; color: #000000; border-bottom: 1px solid #000; padding-bottom: 8px;">Vertex AI</h4>
+<p style="font-size: 13px; color: #2A2825; margin: 6px 0;"><strong>Trains on prompts:</strong> No (default)</p>
+<p style="font-size: 13px; color: #2A2825; margin: 6px 0;"><strong>Reviewers see data:</strong> No</p>
+<p style="font-size: 13px; color: #2A2825; margin: 6px 0;"><strong>Compliance:</strong> HIPAA / SOC2</p>
+<p style="font-size: 13px; color: #2A2825; margin: 6px 0;"><strong>Setup:</strong> High (GCP/IAM)</p>
+</div>
+</div>
 
 <div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 16px; margin-top: 16px;">
 Enabling Cloud Billing on the API key flips training off — even within free quotas.
@@ -416,15 +433,28 @@ Enabling Cloud Billing on the API key flips training off — even within free qu
 # What to watch out for
 <p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">GOTCHAS</p>
 
-**Hidden thinking tokens** — 3.5 Flash and the 3.x line are *thinking* models. A bare `17 × 23` prompt billed 404 invisible reasoning tokens on top of 376 of output — half the bill you never see. Watch `usage_metadata.thoughts_token_count`; set `thinking_budget=0` to turn it off.
-
-**No prompt version control** — AI Studio is a scratch pad. Export to Git/notebooks immediately.
-
-**Pro tiers are paid-only** — On a free key, `gemini-3.1-pro-preview` returns `429 — limit: 0`: zero free quota. Prototype on Flash; the strongest model isn't the free one.
-
-**Product fragmentation** — AI Studio · Vertex AI Studio · Firebase Studio · Gemini CLI · Jules · Opal · Stitch · Colab AI · NotebookLM
-
-**"Get Code" is a starting point** — Error handling, streaming, auth all need work before production.
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0;">
+<div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 14px;">
+<h4 style="margin: 0 0 6px; color: #000000;">Hidden thinking tokens</h4>
+<p style="font-size: 13px; color: #2A2825; margin: 0;">Flash thinks by default — a short prompt billed 404 invisible reasoning tokens. Set <code>thinking_budget=0</code> to disable.</p>
+</div>
+<div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 14px;">
+<h4 style="margin: 0 0 6px; color: #000000;">No prompt version control</h4>
+<p style="font-size: 13px; color: #2A2825; margin: 0;">AI Studio is a scratchpad — nothing is saved. Export to Git or notebooks immediately.</p>
+</div>
+<div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 14px;">
+<h4 style="margin: 0 0 6px; color: #000000;">Pro tiers are paid-only</h4>
+<p style="font-size: 13px; color: #2A2825; margin: 0;">Free key + Pro model = <code>429 — limit: 0</code>. Prototype on Flash; the strongest model has no free quota.</p>
+</div>
+<div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 14px;">
+<h4 style="margin: 0 0 6px; color: #000000;">"Get Code" is a starting point</h4>
+<p style="font-size: 13px; color: #2A2825; margin: 0;">Exported code has no error handling, streaming, or auth. It's a scaffold, not production-ready.</p>
+</div>
+<div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 14px; grid-column: 1 / -1;">
+<h4 style="margin: 0 0 4px; color: #000000;">Product fragmentation</h4>
+<p style="font-size: 13px; color: #5C5750; margin: 0;">AI Studio · Vertex AI Studio · Firebase Studio · Gemini CLI · Jules · Opal · Stitch · Colab AI · NotebookLM — pick one and stay focused.</p>
+</div>
+</div>
 
 ---
 
