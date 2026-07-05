@@ -47,7 +47,7 @@ Remember to deactivate the virtual environment afterwards: `deactivate`
 - Change the `.env.example` file to `.env` and add your Google API key.
 
 ```bash
-GOOGLE_API_KEY=<your google api key>
+GEMINI_API_KEY=<your google api key>
 ```
 
 ## To use this Environment with Jupyter Notebooks:
@@ -60,16 +60,9 @@ GOOGLE_API_KEY=<your google api key>
 Here are the notebooks available in the `code/` folder:
 
 1. [Gemini API Introduction](code/1.0-gemini-api-intro.ipynb) - Text generation with the Gemini API
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly-live-trainings/blob/main/gemini-intro/code/1.0-gemini-api-intro.ipynb)
-
 2. [Gemini Chat, PDF & Image Understanding](code/2.0-gemini-chat-pdf-image-understanding.ipynb) - Multimodal chat with PDFs and images
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly-live-trainings/blob/main/gemini-intro/code/2.0-gemini-chat-pdf-image-understanding.ipynb)
-
 3. [Gemini Embeddings](code/3.0-gemini-embeddings.ipynb) - Text embeddings and similarity search
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly-live-trainings/blob/main/gemini-intro/code/3.0-gemini-embeddings.ipynb)
-
 4. [Token Usage](code/4.0-token-usage.ipynb) - Understanding and tracking token consumption
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EnkrateiaLucca/oreilly-live-trainings/blob/main/gemini-intro/code/4.0-token-usage.ipynb)
 
 ## Scripts
 
@@ -80,4 +73,3 @@ Here are the notebooks available in the `code/` folder:
 - [`code/guide-prompting-gemini.md`](code/guide-prompting-gemini.md) - Comprehensive prompt engineering guide for Gemini
 - `code/assets-resources/` - Supporting PDFs, images, and reference materials
 - `presentation/` - Original course presentation slides (Remark.js HTML, archived)
-- `presentation-v2/` - Updated course slides built with [open-slide](https://github.com/1weiho/open-slide). Run with `cd presentation-v2 && pnpm install && pnpm dev`

@@ -1,7 +1,7 @@
 ipykernel
 google-genai
-google-generativeai
 pydantic
 pandas
 flask
 pillow
+python-dotenv

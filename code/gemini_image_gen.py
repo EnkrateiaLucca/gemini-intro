@@ -1,10 +1,10 @@
 # /// script
 # requires-python = ">=3.12"
-# dependencies = ["google-generativeai", "pillow", "matplotlib"]
+# dependencies = ["google-genai", "pillow", "matplotlib"]
 # ///
 
-import google.generativeai as genai
-from google.generativeai import types
+from google import genai
+from google.genai import types
 import matplotlib.pyplot as plt
 from PIL import Image
 import io
@@ -14,10 +14,7 @@ import os
 gemini_api_key = os.environ.get("GEMINI_API_KEY")
 if not gemini_api_key:
     raise ValueError("GEMINI_API_KEY environment variable not set")
-genai.configure(api_key=gemini_api_key)
-
-# Choose the image generation model
-model = genai.GenerativeModel('gemini-3-pro-image-preview')
+client = genai.Client(api_key=gemini_api_key)
 
 # Define the prompt
 prompt = """
@@ -29,7 +26,13 @@ print(f"Generating image for prompt: '{prompt}'...")
 
 try:
     # Generate the image
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+        model='gemini-3.1-flash-image',
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            response_modalities=['IMAGE', 'TEXT']
+        )
+    )
 
     # Check if the response has image data
     if response.candidates:
@@ -38,7 +41,7 @@ try:
                 if part.inline_data and part.inline_data.mime_type.startswith('image/'):
                     image_data = part.inline_data.data
                     image = Image.open(io.BytesIO(image_data))
-                    
+
                     # Save the image
                     image_filename = "generated_image.png"
                     image.save(image_filename)

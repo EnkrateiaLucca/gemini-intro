@@ -12,6 +12,7 @@ venv/
 # Environments
 .env
 .env.*
+!.env.example
 
 # Jupyter
 .ipynb_checkpoints/
@@ -24,3 +25,8 @@ venv/
 # IDE
 .idea/
 .vscode/
+
+# Course process artifacts (not student-facing content)
+Plans/
+research/
+walkthrough.md

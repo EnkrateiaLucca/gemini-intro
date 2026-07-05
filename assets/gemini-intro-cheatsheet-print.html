@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Building Apps with Gemini — Cheatsheet</title>
+    <style>
+        /* WeasyPrint-optimized print CSS */
+        @page {
+            size: A4;
+            margin: 13mm;
+            @top-left { content: none; }
+            @top-center { content: none; }
+            @top-right { content: none; }
+            @bottom-left { content: none; }
+            @bottom-center { content: none; }
+            @bottom-right { content: none; }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 9pt;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+        }
+
+        /* Header */
+        .page-header {
+            text-align: center;
+            padding-bottom: 9pt;
+            margin-bottom: 10pt;
+            border-bottom: 3px solid #000;
+        }
+
+        .page-header h1 {
+            font-size: 20pt;
+            font-weight: 700;
+            margin-bottom: 4pt;
+            text-transform: uppercase;
+            letter-spacing: 2pt;
+        }
+
+        .page-header .subtitle {
+            font-size: 10.5pt;
+            color: #333;
+            margin-bottom: 3pt;
+        }
+
+        .page-header .meta {
+            font-size: 8pt;
+            color: #666;
+        }
+
+        /* Major sections: keep heading with its content */
+        .major-section {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 11pt;
+            font-weight: 700;
+            margin: 10pt 0 7pt 0;
+            padding: 5pt 10pt;
+            background: #000;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1pt;
+            break-after: avoid;
+            page-break-after: avoid;
+        }
+
+        /* Grid layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8pt;
+            margin-bottom: 8pt;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 7pt;
+            margin-bottom: 8pt;
+        }
+
+        /* Cards */
+        .card {
+            border: 2px solid #000;
+            padding: 8pt;
+            background: #fff;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .card-title {
+            font-size: 10pt;
+            font-weight: 700;
+            margin-bottom: 6pt;
+            padding-bottom: 4pt;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .card-content {
+            font-size: 8.5pt;
+        }
+
+        .card-light {
+            border: 2px solid #000;
+            background: #f9f9f9;
+            padding: 8pt;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .card-light .card-title {
+            font-size: 10pt;
+            font-weight: 700;
+            margin-bottom: 6pt;
+            padding-bottom: 4pt;
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* Info box */
+        .info-box {
+            border: 2px solid #666;
+            border-left: 5px solid #000;
+            padding: 7pt 9pt;
+            margin: 7pt 0;
+            background: #f5f5f5;
+            break-inside: avoid;
+            page-break-inside: avoid;
+            font-size: 8.5pt;
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            font-size: 9.5pt;
+            margin-bottom: 4pt;
+        }
+
+        /* Code cards */
+        .code-card {
+            border: 2px solid #000;
+            background: #fff;
+            break-inside: avoid;
+            page-break-inside: avoid;
+            margin-bottom: 8pt;
+        }
+
+        .code-card-header {
+            background: #000;
+            color: #fff;
+            padding: 4pt 9pt;
+            font-weight: 700;
+            font-size: 8.5pt;
+        }
+
+        .code-card pre {
+            margin: 0;
+            padding: 7pt 9pt;
+            font-family: 'Courier New', 'Courier', monospace;
+            font-size: 7.5pt;
+            line-height: 1.35;
+            background: #f9f9f9;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+
+        /* Full-width code card */
+        .full-code-card {
+            border: 2px solid #000;
+            background: #fff;
+            break-inside: avoid;
+            page-break-inside: avoid;
+            margin-bottom: 8pt;
+        }
+
+        .full-code-card .code-card-header {
+            background: #000;
+            color: #fff;
+            padding: 4pt 9pt;
+            font-weight: 700;
+            font-size: 8.5pt;
+        }
+
+        .full-code-card pre {
+            margin: 0;
+            padding: 7pt 9pt;
+            font-family: 'Courier New', 'Courier', monospace;
+            font-size: 7.5pt;
+            line-height: 1.35;
+            background: #f9f9f9;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+
+        /* Table card */
+        .table-card {
+            border: 2px solid #000;
+            background: #fff;
+            break-inside: avoid;
+            page-break-inside: avoid;
+            margin-bottom: 8pt;
+        }
+
+        .table-card-header {
+            background: #000;
+            color: #fff;
+            padding: 4pt 9pt;
+            font-weight: 700;
+            font-size: 9.5pt;
+        }
+
+        .table-card table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8pt;
+        }
+
+        .table-card th {
+            background: #f0f0f0;
+            font-weight: 700;
+            text-align: left;
+            padding: 4pt 7pt;
+            border-bottom: 2px solid #000;
+        }
+
+        .table-card td {
+            padding: 4pt 7pt;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        .table-card td code {
+            font-family: 'Courier New', monospace;
+            font-size: 7pt;
+            background: #f0f0f0;
+            padding: 1pt 2pt;
+        }
+
+        /* Lists */
+        .card ul, .card ol,
+        .card-light ul, .card-light ol {
+            margin-left: 13pt;
+        }
+
+        .card li, .card-light li {
+            margin-bottom: 3pt;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 7.5pt;
+            background: #f0f0f0;
+            padding: 1pt 2pt;
+        }
+
+        /* Key points box */
+        .key-points {
+            border: 3px solid #000;
+            background: #f9f9f9;
+            padding: 9pt;
+            margin: 9pt 0;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .key-points-title {
+            font-weight: 700;
+            font-size: 10pt;
+            margin-bottom: 7pt;
+            text-transform: uppercase;
+        }
+
+        .key-points ul { margin-left: 13pt; }
+        .key-points li { margin-bottom: 4pt; font-size: 9pt; }
+
+        footer {
+            margin-top: 14pt;
+            padding-top: 7pt;
+            border-top: 2px solid #000;
+            text-align: center;
+            font-size: 7pt;
+            color: #666;
+        }
+
+        .mb-small { margin-bottom: 7pt; }
+        .mb-medium { margin-bottom: 10pt; }
+    </style>
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Building Apps with Gemini</h1>
+        <div class="subtitle">O'Reilly Live Training — Quick Reference Cheatsheet</div>
+        <div class="meta">google-genai SDK | Gemini 3.5 Flash | Python 3.10+ | 2026</div>
+    </div>
+
+    <!-- Section 1: Setup -->
+    <div class="major-section">
+        <div class="section-title">1. Setup &amp; Authentication</div>
+        <div class="grid-2">
+            <div class="code-card">
+                <div class="code-card-header">Install &amp; Configure</div>
+                <pre><code># Install
+pip install google-genai python-dotenv
+
+# .env file
+GEMINI_API_KEY=your_key_here
+# OR: GOOGLE_API_KEY=your_key_here</code></pre>
+            </div>
+            <div class="code-card">
+                <div class="code-card-header">Initialize Client</div>
+                <pre><code>from google import genai
+from google.genai import types
+import os
+
+client = genai.Client(
+    api_key=os.getenv("GEMINI_API_KEY")
+)</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Text Generation -->
+    <div class="major-section">
+        <div class="section-title">2. Text Generation</div>
+        <div class="grid-2">
+            <div class="code-card">
+                <div class="code-card-header">Basic Generation</div>
+                <pre><code>response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents="Explain transformers in 3 bullets"
+)
+print(response.text)</code></pre>
+            </div>
+            <div class="code-card">
+                <div class="code-card-header">With Sampling Config</div>
+                <pre><code>response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents="Write a haiku about Python",
+    config=types.GenerateContentConfig(
+        temperature=0.9,
+        top_k=40,
+        top_p=0.99,
+        max_output_tokens=256,
+    )
+)
+print(response.text)</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Multimodal -->
+    <div class="major-section">
+        <div class="section-title">3. Multimodal: Images &amp; Documents</div>
+        <div class="grid-2">
+            <div class="code-card">
+                <div class="code-card-header">Image — Upload API</div>
+                <pre><code># Upload once, reuse in multiple requests
+my_file = client.files.upload(
+    file="./photo.png"
+)
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents=[my_file, "Caption this image."]
+)
+print(response.text)</code></pre>
+            </div>
+            <div class="code-card">
+                <div class="code-card-header">Image — Inline Bytes</div>
+                <pre><code>with open("photo.png", "rb") as f:
+    image_bytes = f.read()
+
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents=[
+        types.Part.from_bytes(
+            data=image_bytes,
+            mime_type="image/png",
+        ),
+        "What is in this image?"
+    ]
+)
+print(response.text)</code></pre>
+            </div>
+        </div>
+        <div class="grid-2">
+            <div class="code-card">
+                <div class="code-card-header">PDF — From URL</div>
+                <pre><code>import httpx
+
+doc_data = httpx.get(
+    "https://arxiv.org/pdf/1706.03762"
+).content
+
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents=[
+        types.Part.from_bytes(
+            data=doc_data,
+            mime_type="application/pdf",
+        ),
+        "Summarize in bullet points"
+    ]
+)
+print(response.text)</code></pre>
+            </div>
+            <div class="code-card">
+                <div class="code-card-header">PDF — Local File</div>
+                <pre><code>import pathlib
+
+filepath = pathlib.Path("./paper.pdf")
+
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents=[
+        types.Part.from_bytes(
+            data=filepath.read_bytes(),
+            mime_type="application/pdf",
+        ),
+        "Extract key insights"
+    ]
+)
+print(response.text)</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: Structured Output -->
+    <div class="major-section">
+        <div class="section-title">4. Structured Output (Pydantic + JSON Schema)</div>
+        <div class="grid-2">
+            <div class="code-card">
+                <div class="code-card-header">Define Schema &amp; Parse</div>
+                <pre><code>from pydantic import BaseModel, Field
+
+class Table(BaseModel):
+    table_title: str = Field(
+        description="title of the table"
+    )
+    table_contents: dict = Field(
+        description="table data as a dict"
+    )
+
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents=[pdf_part, "Extract all tables"],
+    config={
+        "response_mime_type": "application/json",
+        "response_schema": list[Table],
+    }
+)
+tables = response.parsed  # list[Table]</code></pre>
+            </div>
+            <div class="code-card">
+                <div class="code-card-header">Extract Sections from Text</div>
+                <pre><code>class Section(BaseModel):
+    title: str
+    content: str
+
+def extract_sections(text: str):
+    response = client.models.generate_content(
+        model="gemini-3.5-flash",
+        contents=(
+            "Extract main sections "
+            f"from:\n\n{text}"
+        ),
+        config={
+            "response_mime_type":
+                "application/json",
+            "response_schema": list[Section],
+        },
+    )
+    return response.parsed
+
+sections = extract_sections(report_text)
+for s in sections:
+    print(s.title)</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5: Embeddings -->
+    <div class="major-section">
+        <div class="section-title">5. Embeddings &amp; Semantic Search</div>
+        <div class="grid-2">
+            <div class="code-card">
+                <div class="code-card-header">Generate Embeddings</div>
+                <pre><code># Single embedding
+result = client.models.embed_content(
+    model="gemini-embedding-2",
+    contents="What is the meaning of life?"
+)
+vector = result.embeddings[0].values
+
+# With task type (recommended)
+result = client.models.embed_content(
+    model="gemini-embedding-2",
+    contents="search query text",
+    config=types.EmbedContentConfig(
+        task_type="RETRIEVAL_QUERY"
+    )
+)</code></pre>
+            </div>
+            <div class="card">
+                <div class="card-title">Embedding Task Types</div>
+                <div class="card-content">
+                    <ul>
+                        <li><code>RETRIEVAL_DOCUMENT</code> — indexing docs into a store</li>
+                        <li><code>RETRIEVAL_QUERY</code> — encoding a search query</li>
+                        <li><code>SEMANTIC_SIMILARITY</code> — comparing text pairs</li>
+                        <li><code>CLASSIFICATION</code> — text classification tasks</li>
+                        <li><code>CLUSTERING</code> — grouping similar documents</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6: RAG Pattern -->
+    <div class="major-section">
+        <div class="section-title">6. Simple RAG with Embeddings</div>
+        <div class="full-code-card">
+            <div class="code-card-header">Build Document Store &amp; Semantic Search</div>
+            <pre><code>import numpy as np, pandas as pd
+
+# 1. Build store — embed each document once
+df = pd.DataFrame({"Title": titles, "Text": texts})
+df["Embeddings"] = df.apply(
+    lambda row: client.models.embed_content(
+        model="gemini-embedding-2",
+        contents=f"Title: {row['Title']}. Content:\n{row['Text']}",
+        config=types.EmbedContentConfig(task_type="RETRIEVAL_DOCUMENT")
+    ).embeddings[0].values,
+    axis=1,
+)
+
+# 2. Search — dot product (embeddings are unit-normalised)
+def find_best_passage(query: str, dataframe: pd.DataFrame) -> str:
+    q_emb = client.models.embed_content(
+        model="gemini-embedding-2",
+        contents=query,
+        config=types.EmbedContentConfig(task_type="RETRIEVAL_QUERY")
+    ).embeddings[0].values
+    scores = np.dot(np.stack(dataframe["Embeddings"]), q_emb)
+    return dataframe.iloc[np.argmax(scores)]["Text"]
+
+# 3. Answer with context
+passage = find_best_passage("best prompting techniques?", df)
+answer = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents=f"Answer using this context:\n{passage}\n\nQuestion: best prompting techniques?"
+)
+print(answer.text)</code></pre>
+        </div>
+    </div>
+
+    <!-- Section 7: Token Counting -->
+    <div class="major-section">
+        <div class="section-title">7. Token Counting &amp; Usage</div>
+        <div class="grid-2">
+            <div class="code-card">
+                <div class="code-card-header">Count Tokens Before Generation</div>
+                <pre><code>total = client.models.count_tokens(
+    model="gemini-3.5-flash",
+    contents="The quick brown fox."
+)
+print(total.total_tokens)  # e.g. 10</code></pre>
+            </div>
+            <div class="code-card">
+                <div class="code-card-header">Usage Metadata After Generation</div>
+                <pre><code>response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents="Explain AI in 50 words"
+)
+meta = response.usage_metadata
+print(meta.prompt_token_count)
+print(meta.candidates_token_count)
+print(meta.total_token_count)</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 8: Models -->
+    <div class="major-section">
+        <div class="section-title">8. Models Reference</div>
+        <div class="table-card mb-small">
+            <div class="table-card-header">Available Gemini Models</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model ID</th>
+                        <th>Best For</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>gemini-3.5-flash</code></td>
+                        <td>Current default — text &amp; multimodal tasks</td>
+                        <td>Default choice for dev &amp; production</td>
+                    </tr>
+                    <tr>
+                        <td><code>gemini-3.1-pro-preview</code></td>
+                        <td>Pro tier — complex reasoning, PDF analysis</td>
+                        <td>Highest capability, higher cost</td>
+                    </tr>
+                    <tr>
+                        <td><code>gemini-3.1-flash-image</code></td>
+                        <td>Image generation</td>
+                        <td>Specialized for image synthesis tasks</td>
+                    </tr>
+                    <tr>
+                        <td><code>gemini-embedding-2</code></td>
+                        <td>Recommended — multimodal (text, images, video, audio, PDFs)</td>
+                        <td>Use with task_type for best results</td>
+                    </tr>
+                    <tr>
+                        <td><code>gemini-embedding-001</code></td>
+                        <td>Stable — text-only (legacy)</td>
+                        <td>Production-ready embedding model</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Section 9: Prompt Engineering -->
+    <div class="major-section">
+        <div class="section-title">9. Prompt Engineering Techniques</div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title">Core Techniques</div>
+                <div class="card-content">
+                    <ul>
+                        <li><strong>Zero-Shot</strong> — Direct task, no examples. Start here.</li>
+                        <li><strong>Few-Shot</strong> — 3–5 input/output examples. Best for format control.</li>
+                        <li><strong>Role Prompting</strong> — "Act as a senior Python developer..." Shapes tone &amp; expertise.</li>
+                        <li><strong>System Prompt</strong> — Sets global rules: "Only return JSON", "Be concise".</li>
+                        <li><strong>Contextual Prompt</strong> — Inject relevant background before the question.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Advanced Techniques</div>
+                <div class="card-content">
+                    <ul>
+                        <li><strong>Chain of Thought (CoT)</strong> — "Let's think step by step." Use temp=0.</li>
+                        <li><strong>Self-Consistency</strong> — Run CoT N times at higher temp, take majority answer.</li>
+                        <li><strong>Step-Back Prompting</strong> — Ask general question first, use answer as context.</li>
+                        <li><strong>ReAct</strong> — Reason + Act: Thought / Action / Observation loops for agents.</li>
+                        <li><strong>APE</strong> — Use LLM to generate &amp; evaluate prompt variants automatically.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 10: Config Parameters -->
+    <div class="major-section">
+        <div class="section-title">10. Model Configuration Parameters</div>
+        <div class="table-card mb-small">
+            <div class="table-card-header">Sampling Controls</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Range</th>
+                        <th>Low Value</th>
+                        <th>High Value</th>
+                        <th>Recommended Start</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Temperature</strong></td>
+                        <td>0 – 1.0</td>
+                        <td>Deterministic, factual</td>
+                        <td>Creative, diverse</td>
+                        <td>0.2 (factual) | 0.9 (creative) | 0 (CoT)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Top-K</strong></td>
+                        <td>1 – 40+</td>
+                        <td>Conservative (20)</td>
+                        <td>More diverse (40+)</td>
+                        <td>30 balanced default</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Top-P</strong></td>
+                        <td>0 – 1.0</td>
+                        <td>Tighter logic (0.9)</td>
+                        <td>More variety (0.99)</td>
+                        <td>0.95 balanced default</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Max Output Tokens</strong></td>
+                        <td>1 – max</td>
+                        <td colspan="2">Controls cost &amp; latency. Too short truncates JSON — add buffer.</td>
+                        <td>Set explicitly in production</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Section 11: Best Practices -->
+    <div class="major-section">
+        <div class="section-title">11. Prompt Writing Best Practices</div>
+        <div class="grid-2">
+            <div class="card-light">
+                <div class="card-title">Do This</div>
+                <div class="card-content">
+                    <ul>
+                        <li>Start with action verbs: <em>Summarize, Classify, Extract, Translate</em></li>
+                        <li>Be specific about format: "Return a JSON array with fields: name, score"</li>
+                        <li>Use positive instructions — tell the model what TO do</li>
+                        <li>Add examples (few-shot) when format matters</li>
+                        <li>Set temp=0 for deterministic/reasoning tasks (CoT)</li>
+                        <li>Use variables: <code>{city}</code>, <code>{user_input}</code> for reusability</li>
+                        <li>Document your prompts: version, model, settings, output</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-light">
+                <div class="card-title">Avoid This</div>
+                <div class="card-content">
+                    <ul>
+                        <li>Vague instructions: "Write something about AI" → too broad</li>
+                        <li>Negative-only constraints: "Don't mention X" → weaker than "Focus only on Y"</li>
+                        <li>Assuming CoT output at high temp → use temp=0 for reasoning</li>
+                        <li>Ignoring token limits → JSON gets truncated; use <code>json-repair</code> as safety net</li>
+                        <li>Testing only happy path — always test edge cases</li>
+                        <li>Skipping: Craft → Test → Analyze → Document → Refine loop</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 12: Resources -->
+    <div class="major-section">
+        <div class="section-title">12. Key Resources</div>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-title">Official Docs</div>
+                <div class="card-content">
+                    <ul>
+                        <li>Quickstart: <code>ai.google.dev/gemini-api</code></li>
+                        <li>Images: <code>.../image-understanding</code></li>
+                        <li>PDFs: <code>.../document-processing</code></li>
+                        <li>Embeddings: <code>.../embeddings</code></li>
+                        <li>Audio: <code>.../audio</code></li>
+                        <li>Video: <code>.../video-understanding</code></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Multimodal MIME Types</div>
+                <div class="card-content">
+                    <ul>
+                        <li><code>image/png</code> — PNG images</li>
+                        <li><code>image/jpeg</code> — JPEG images</li>
+                        <li><code>application/pdf</code> — PDF docs</li>
+                        <li><code>audio/mp3</code> — Audio files</li>
+                        <li><code>video/mp4</code> — Video files</li>
+                        <li><code>text/plain</code> — Plain text</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Useful Packages</div>
+                <div class="card-content">
+                    <ul>
+                        <li><code>google-genai</code> — Official SDK</li>
+                        <li><code>httpx</code> — Fetch PDFs from URLs</li>
+                        <li><code>pathlib</code> — Local file paths</li>
+                        <li><code>pydantic</code> — Structured output schemas</li>
+                        <li><code>numpy</code> — Embedding dot products</li>
+                        <li><code>pandas</code> — Document store</li>
+                        <li><code>json-repair</code> — Fix truncated JSON</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-box-title">API Key Tips</div>
+            <p>Both <code>GOOGLE_API_KEY</code> and <code>GEMINI_API_KEY</code> are accepted — if both are set, <code>GOOGLE_API_KEY</code> takes precedence. Get your key at <strong>aistudio.google.com/app/apikey</strong>. Use <code>python-dotenv</code> to load from <code>.env</code> files in development.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Automata Learning Lab | O'Reilly Live Training: Building Apps with Gemini | Professional educational materials crafted with care</p>
+    </footer>
+
+</body>
+</html>
