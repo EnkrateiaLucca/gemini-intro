@@ -515,24 +515,24 @@ result = client.models.embed_content(
 )
 vector = result.embeddings[0].values
 
-# With task type (recommended)
+# With a task instruction (recommended)
 result = client.models.embed_content(
     model="gemini-embedding-2",
-    contents="search query text",
-    config=types.EmbedContentConfig(
-        task_type="RETRIEVAL_QUERY"
-    )
+    contents="Task: retrieve documents that "
+             "answer this question. "
+             "search query text"
 )</code></pre>
             </div>
             <div class="card">
-                <div class="card-title">Embedding Task Types</div>
+                <div class="card-title">Task Instructions</div>
                 <div class="card-content">
+                    <p style="margin: 0 0 6px;"><strong>⚠ <code>task_type</code> does not apply to <code>gemini-embedding-2</code></strong> — it is silently ignored. Prepend the task to the text instead:</p>
                     <ul>
-                        <li><code>RETRIEVAL_DOCUMENT</code> — indexing docs into a store</li>
-                        <li><code>RETRIEVAL_QUERY</code> — encoding a search query</li>
-                        <li><code>SEMANTIC_SIMILARITY</code> — comparing text pairs</li>
-                        <li><code>CLASSIFICATION</code> — text classification tasks</li>
-                        <li><code>CLUSTERING</code> — grouping similar documents</li>
+                        <li>"Task: index this document for retrieval." — building a store</li>
+                        <li>"Task: retrieve documents that answer this question." — search query</li>
+                        <li>"Task: find semantically similar text." — comparing pairs</li>
+                        <li>"Task: classify this text." — classification</li>
+                        <li>"Task: group similar documents." — clustering</li>
                     </ul>
                 </div>
             </div>
@@ -553,8 +553,8 @@ df = pd.DataFrame({"Title": titles, "Text": texts})
 df["Embeddings"] = df.apply(
     lambda row: client.models.embed_content(
         model="gemini-embedding-2",
-        contents=f"Title: {row['Title']}. Content:\n{row['Text']}",
-        config=types.EmbedContentConfig(task_type="RETRIEVAL_DOCUMENT")
+        contents=f"Task: index this document for retrieval. "
+                 f"Title: {row['Title']}. Content:\n{row['Text']}"
     ).embeddings[0].values,
     axis=1,
 )
@@ -563,8 +563,8 @@ df["Embeddings"] = df.apply(
 def find_best_passage(query: str, dataframe: pd.DataFrame) -> str:
     q_emb = client.models.embed_content(
         model="gemini-embedding-2",
-        contents=query,
-        config=types.EmbedContentConfig(task_type="RETRIEVAL_QUERY")
+        contents=f"Task: retrieve documents that answer "
+                 f"this question. {query}"
     ).embeddings[0].values
     scores = np.dot(np.stack(dataframe["Embeddings"]), q_emb)
     return dataframe.iloc[np.argmax(scores)]["Text"]
@@ -646,7 +646,7 @@ print(meta.total_token_count)</code></pre>
                     <tr>
                         <td><code>gemini-embedding-2</code></td>
                         <td>Recommended — multimodal (text, images, video, audio, PDFs)</td>
-                        <td>Use with task_type for best results</td>
+                        <td>Prepend a task instruction for best results</td>
                     </tr>
                     <tr>
                         <td><code>gemini-embedding-001</code></td>
