@@ -67,9 +67,11 @@ Here are the notebooks available in the `code/` folder:
 ## Scripts
 
 - [`gemini_image_gen.py`](code/gemini_image_gen.py) - Generate images with Gemini and interactively keep or delete them (runnable with `uv run code/gemini_image_gen.py`)
+- [`app.py`](app.py) - Flask storyboard demo: turns a story prompt into a six-frame storyboard, then generates an image for each frame. Run with `python app.py` and open http://localhost:5001. Requires `GEMINI_API_KEY` in your `.env`.
 
 ## Additional Resources
 
 - [`code/guide-prompting-gemini.md`](code/guide-prompting-gemini.md) - Comprehensive prompt engineering guide for Gemini
+- [`assets/gemini-intro-cheatsheet.pdf`](assets/gemini-intro-cheatsheet.pdf) - Quick-reference card for the course (models, thinking levels, and API patterns)
 - `code/assets-resources/` - Supporting PDFs, images, and reference materials
-- `presentation/` - Original course presentation slides (Remark.js HTML, archived)
+- `presentation/` - Course presentation slides (Remark.js HTML)

@@ -304,215 +304,223 @@
     <div class="page-header">
         <h1>Building Apps with Gemini</h1>
         <div class="subtitle">O'Reilly Live Training — Quick Reference Cheatsheet</div>
-        <div class="meta">google-genai SDK | Gemini 3.5 Flash | Python 3.10+ | 2026</div>
+        <div class="meta">google-genai SDK | Gemini 3.8 Flash | Python 3.10+ | 2026</div>
     </div>
 
     <!-- Section 1: Setup -->
     <div class="major-section">
         <div class="section-title">1. Setup &amp; Authentication</div>
+
         <div class="grid-2">
             <div class="code-card">
                 <div class="code-card-header">Install &amp; Configure</div>
                 <pre><code># Install
-pip install google-genai python-dotenv
+    pip install google-genai python-dotenv
 
-# .env file
-GEMINI_API_KEY=your_key_here
-# OR: GOOGLE_API_KEY=your_key_here</code></pre>
+    # .env file
+    GEMINI_API_KEY=your_key_here
+    # OR: GOOGLE_API_KEY=your_key_here</code></pre>
             </div>
             <div class="code-card">
                 <div class="code-card-header">Initialize Client</div>
                 <pre><code>from google import genai
-from google.genai import types
-import os
+    from google.genai import types
+    import os
 
-client = genai.Client(
-    api_key=os.getenv("GEMINI_API_KEY")
-)</code></pre>
+    client = genai.Client(
+        api_key=os.getenv("GEMINI_API_KEY")
+    )</code></pre>
             </div>
         </div>
+
     </div>
 
     <!-- Section 2: Text Generation -->
     <div class="major-section">
         <div class="section-title">2. Text Generation</div>
+
         <div class="grid-2">
             <div class="code-card">
                 <div class="code-card-header">Basic Generation</div>
                 <pre><code>response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents="Explain transformers in 3 bullets"
-)
-print(response.text)</code></pre>
+        model="gemini-3.8-flash",
+        contents="Explain transformers in 3 bullets"
+    )
+    print(response.text)</code></pre>
             </div>
             <div class="code-card">
-                <div class="code-card-header">With Sampling Config</div>
+                <div class="code-card-header">With Config (Thinking Level)</div>
                 <pre><code>response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents="Write a haiku about Python",
-    config=types.GenerateContentConfig(
-        temperature=0.9,
-        top_k=40,
-        top_p=0.99,
-        max_output_tokens=256,
+        model="gemini-3.8-flash",
+        contents="Write a haiku about Python",
+        config=types.GenerateContentConfig(
+            thinking_level="low",
+            max_output_tokens=256,
+        )
     )
-)
-print(response.text)</code></pre>
+    print(response.text)</code></pre>
             </div>
         </div>
+
     </div>
 
-    <!-- Section 3: Multimodal -->
+    <!-- Section 3: Multimodal — Image & PDF -->
     <div class="major-section">
         <div class="section-title">3. Multimodal: Images &amp; Documents</div>
+
         <div class="grid-2">
             <div class="code-card">
                 <div class="code-card-header">Image — Upload API</div>
                 <pre><code># Upload once, reuse in multiple requests
-my_file = client.files.upload(
-    file="./photo.png"
-)
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents=[my_file, "Caption this image."]
-)
-print(response.text)</code></pre>
+    my_file = client.files.upload(
+        file="./photo.png"
+    )
+    response = client.models.generate_content(
+        model="gemini-3.8-flash",
+        contents=[my_file, "Caption this image."]
+    )
+    print(response.text)</code></pre>
             </div>
             <div class="code-card">
                 <div class="code-card-header">Image — Inline Bytes</div>
                 <pre><code>with open("photo.png", "rb") as f:
-    image_bytes = f.read()
+        image_bytes = f.read()
 
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents=[
-        types.Part.from_bytes(
-            data=image_bytes,
-            mime_type="image/png",
-        ),
-        "What is in this image?"
-    ]
-)
-print(response.text)</code></pre>
+    response = client.models.generate_content(
+        model="gemini-3.8-flash",
+        contents=[
+            types.Part.from_bytes(
+                data=image_bytes,
+                mime_type="image/png",
+            ),
+            "What is in this image?"
+        ]
+    )
+    print(response.text)</code></pre>
             </div>
         </div>
+
         <div class="grid-2">
             <div class="code-card">
                 <div class="code-card-header">PDF — From URL</div>
                 <pre><code>import httpx
 
-doc_data = httpx.get(
-    "https://arxiv.org/pdf/1706.03762"
-).content
+    doc_data = httpx.get(
+        "https://arxiv.org/pdf/1706.03762"
+    ).content
 
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents=[
-        types.Part.from_bytes(
-            data=doc_data,
-            mime_type="application/pdf",
-        ),
-        "Summarize in bullet points"
-    ]
-)
-print(response.text)</code></pre>
+    response = client.models.generate_content(
+        model="gemini-3.8-flash",
+        contents=[
+            types.Part.from_bytes(
+                data=doc_data,
+                mime_type="application/pdf",
+            ),
+            "Summarize in bullet points"
+        ]
+    )
+    print(response.text)</code></pre>
             </div>
             <div class="code-card">
                 <div class="code-card-header">PDF — Local File</div>
                 <pre><code>import pathlib
 
-filepath = pathlib.Path("./paper.pdf")
+    filepath = pathlib.Path("./paper.pdf")
 
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents=[
-        types.Part.from_bytes(
-            data=filepath.read_bytes(),
-            mime_type="application/pdf",
-        ),
-        "Extract key insights"
-    ]
-)
-print(response.text)</code></pre>
+    response = client.models.generate_content(
+        model="gemini-3.8-flash",
+        contents=[
+            types.Part.from_bytes(
+                data=filepath.read_bytes(),
+                mime_type="application/pdf",
+            ),
+            "Extract key insights"
+        ]
+    )
+    print(response.text)</code></pre>
             </div>
         </div>
+
     </div>
 
     <!-- Section 4: Structured Output -->
     <div class="major-section">
         <div class="section-title">4. Structured Output (Pydantic + JSON Schema)</div>
+
         <div class="grid-2">
             <div class="code-card">
                 <div class="code-card-header">Define Schema &amp; Parse</div>
                 <pre><code>from pydantic import BaseModel, Field
 
-class Table(BaseModel):
-    table_title: str = Field(
-        description="title of the table"
-    )
-    table_contents: dict = Field(
-        description="table data as a dict"
-    )
+    class Table(BaseModel):
+        table_title: str = Field(
+            description="title of the table"
+        )
+        table_contents: dict = Field(
+            description="table data as a dict"
+        )
 
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents=[pdf_part, "Extract all tables"],
-    config={
-        "response_mime_type": "application/json",
-        "response_schema": list[Table],
-    }
-)
-tables = response.parsed  # list[Table]</code></pre>
+    response = client.models.generate_content(
+        model="gemini-3.8-flash",
+        contents=[pdf_part, "Extract all tables"],
+        config={
+            "response_mime_type": "application/json",
+            "response_schema": list[Table],
+        }
+    )
+    tables = response.parsed  # list[Table]</code></pre>
             </div>
             <div class="code-card">
                 <div class="code-card-header">Extract Sections from Text</div>
                 <pre><code>class Section(BaseModel):
-    title: str
-    content: str
+        title: str
+        content: str
 
-def extract_sections(text: str):
-    response = client.models.generate_content(
-        model="gemini-3.5-flash",
-        contents=(
-            "Extract main sections "
-            f"from:\n\n{text}"
-        ),
-        config={
-            "response_mime_type":
-                "application/json",
-            "response_schema": list[Section],
-        },
-    )
-    return response.parsed
+    def extract_sections(text: str):
+        response = client.models.generate_content(
+            model="gemini-3.8-flash",
+            contents=(
+                "Extract main sections "
+                f"from:\n\n{text}"
+            ),
+            config={
+                "response_mime_type":
+                    "application/json",
+                "response_schema": list[Section],
+            },
+        )
+        return response.parsed
 
-sections = extract_sections(report_text)
-for s in sections:
-    print(s.title)</code></pre>
+    sections = extract_sections(report_text)
+    for s in sections:
+        print(s.title)</code></pre>
             </div>
         </div>
+
     </div>
 
     <!-- Section 5: Embeddings -->
     <div class="major-section">
         <div class="section-title">5. Embeddings &amp; Semantic Search</div>
+
         <div class="grid-2">
             <div class="code-card">
                 <div class="code-card-header">Generate Embeddings</div>
                 <pre><code># Single embedding
-result = client.models.embed_content(
-    model="gemini-embedding-2",
-    contents="What is the meaning of life?"
-)
-vector = result.embeddings[0].values
-
-# With task type (recommended)
-result = client.models.embed_content(
-    model="gemini-embedding-2",
-    contents="search query text",
-    config=types.EmbedContentConfig(
-        task_type="RETRIEVAL_QUERY"
+    result = client.models.embed_content(
+        model="gemini-embedding-2",
+        contents="What is the meaning of life?"
     )
-)</code></pre>
+    vector = result.embeddings[0].values
+
+    # With task type (recommended)
+    result = client.models.embed_content(
+        model="gemini-embedding-2",
+        contents="search query text",
+        config=types.EmbedContentConfig(
+            task_type="RETRIEVAL_QUERY"
+        )
+    )</code></pre>
             </div>
             <div class="card">
                 <div class="card-title">Embedding Task Types</div>
@@ -527,75 +535,81 @@ result = client.models.embed_content(
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Section 6: RAG Pattern -->
     <div class="major-section">
         <div class="section-title">6. Simple RAG with Embeddings</div>
+
         <div class="full-code-card">
-            <div class="code-card-header">Build Document Store &amp; Semantic Search</div>
+            <div class="code-card-header">Build Document Store &amp; Semantic Search (dot product)</div>
             <pre><code>import numpy as np, pandas as pd
 
-# 1. Build store — embed each document once
-df = pd.DataFrame({"Title": titles, "Text": texts})
-df["Embeddings"] = df.apply(
-    lambda row: client.models.embed_content(
-        model="gemini-embedding-2",
-        contents=f"Title: {row['Title']}. Content:\n{row['Text']}",
-        config=types.EmbedContentConfig(task_type="RETRIEVAL_DOCUMENT")
-    ).embeddings[0].values,
-    axis=1,
-)
+    # 1. Build store — embed each document once
+    df = pd.DataFrame({"Title": titles, "Text": texts})
+    df["Embeddings"] = df.apply(
+        lambda row: client.models.embed_content(
+            model="gemini-embedding-2",
+            contents=f"Title: {row['Title']}. Content:\n{row['Text']}",
+            config=types.EmbedContentConfig(task_type="RETRIEVAL_DOCUMENT")
+        ).embeddings[0].values,
+        axis=1,
+    )
 
-# 2. Search — dot product (embeddings are unit-normalised)
-def find_best_passage(query: str, dataframe: pd.DataFrame) -> str:
-    q_emb = client.models.embed_content(
-        model="gemini-embedding-2",
-        contents=query,
-        config=types.EmbedContentConfig(task_type="RETRIEVAL_QUERY")
-    ).embeddings[0].values
-    scores = np.dot(np.stack(dataframe["Embeddings"]), q_emb)
-    return dataframe.iloc[np.argmax(scores)]["Text"]
+    # 2. Search — cosine via dot product (embeddings are unit-normalised)
+    def find_best_passage(query: str, dataframe: pd.DataFrame) -> str:
+        q_emb = client.models.embed_content(
+            model="gemini-embedding-2",
+            contents=query,
+            config=types.EmbedContentConfig(task_type="RETRIEVAL_QUERY")
+        ).embeddings[0].values
+        scores = np.dot(np.stack(dataframe["Embeddings"]), q_emb)
+        return dataframe.iloc[np.argmax(scores)]["Text"]
 
-# 3. Answer with context
-passage = find_best_passage("best prompting techniques?", df)
-answer = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents=f"Answer using this context:\n{passage}\n\nQuestion: best prompting techniques?"
-)
-print(answer.text)</code></pre>
+    # 3. Answer with context
+    passage = find_best_passage("best prompting techniques?", df)
+    answer = client.models.generate_content(
+        model="gemini-3.8-flash",
+        contents=f"Answer using this context:\n{passage}\n\nQuestion: best prompting techniques?"
+    )
+    print(answer.text)</code></pre>
         </div>
+
     </div>
 
     <!-- Section 7: Token Counting -->
     <div class="major-section">
         <div class="section-title">7. Token Counting &amp; Usage</div>
+
         <div class="grid-2">
             <div class="code-card">
-                <div class="code-card-header">Count Tokens Before Generation</div>
+                <div class="code-card-header">Count Tokens (Before Generation)</div>
                 <pre><code>total = client.models.count_tokens(
-    model="gemini-3.5-flash",
-    contents="The quick brown fox."
-)
-print(total.total_tokens)  # e.g. 10</code></pre>
+        model="gemini-3.8-flash",
+        contents="The quick brown fox."
+    )
+    print(total.total_tokens)  # e.g. 10</code></pre>
             </div>
             <div class="code-card">
-                <div class="code-card-header">Usage Metadata After Generation</div>
+                <div class="code-card-header">Usage Metadata (After Generation)</div>
                 <pre><code>response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents="Explain AI in 50 words"
-)
-meta = response.usage_metadata
-print(meta.prompt_token_count)
-print(meta.candidates_token_count)
-print(meta.total_token_count)</code></pre>
+        model="gemini-3.8-flash",
+        contents="Explain AI in 50 words"
+    )
+    meta = response.usage_metadata
+    print(meta.prompt_token_count)
+    print(meta.candidates_token_count)
+    print(meta.total_token_count)</code></pre>
             </div>
         </div>
+
     </div>
 
-    <!-- Section 8: Models -->
+    <!-- Section 8: Models Reference -->
     <div class="major-section">
         <div class="section-title">8. Models Reference</div>
+
         <div class="table-card mb-small">
             <div class="table-card-header">Available Gemini Models</div>
             <table>
@@ -608,19 +622,24 @@ print(meta.total_token_count)</code></pre>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><code>gemini-3.5-flash</code></td>
+                        <td><code>gemini-3.8-flash</code></td>
                         <td>Current default — text &amp; multimodal tasks</td>
                         <td>Default choice for dev &amp; production</td>
                     </tr>
                     <tr>
+                        <td><code>gemini-3.5-flash-lite</code></td>
+                        <td>Budget tier — high-volume, latency-sensitive work</td>
+                        <td>Cheapest and fastest; free-tier eligible</td>
+                    </tr>
+                    <tr>
                         <td><code>gemini-3.1-pro-preview</code></td>
                         <td>Pro tier — complex reasoning, PDF analysis</td>
-                        <td>Highest capability, higher cost</td>
+                        <td>Highest capability, higher cost — <strong>no free tier</strong></td>
                     </tr>
                     <tr>
                         <td><code>gemini-3.1-flash-image</code></td>
                         <td>Image generation</td>
-                        <td>Specialized for image synthesis tasks</td>
+                        <td>Specialized for image synthesis — <strong>no free tier</strong></td>
                     </tr>
                     <tr>
                         <td><code>gemini-embedding-2</code></td>
@@ -635,11 +654,13 @@ print(meta.total_token_count)</code></pre>
                 </tbody>
             </table>
         </div>
+
     </div>
 
     <!-- Section 9: Prompt Engineering -->
     <div class="major-section">
         <div class="section-title">9. Prompt Engineering Techniques</div>
+
         <div class="grid-2">
             <div class="card">
                 <div class="card-title">Core Techniques</div>
@@ -657,22 +678,24 @@ print(meta.total_token_count)</code></pre>
                 <div class="card-title">Advanced Techniques</div>
                 <div class="card-content">
                     <ul>
-                        <li><strong>Chain of Thought (CoT)</strong> — "Let's think step by step." Use temp=0.</li>
-                        <li><strong>Self-Consistency</strong> — Run CoT N times at higher temp, take majority answer.</li>
-                        <li><strong>Step-Back Prompting</strong> — Ask general question first, use answer as context.</li>
-                        <li><strong>ReAct</strong> — Reason + Act: Thought / Action / Observation loops for agents.</li>
+                        <li><strong>Chain of Thought (CoT)</strong> — Append "Let's think step by step." Pair with <code>thinking_level="high"</code>.</li>
+                        <li><strong>Self-Consistency</strong> — Run CoT N times, take the majority answer.</li>
+                        <li><strong>Step-Back Prompting</strong> — Ask the general question first, use answer as context.</li>
+                        <li><strong>ReAct</strong> — Reason + Act: interleave Thought / Action / Observation loops for agents.</li>
                         <li><strong>APE</strong> — Use LLM to generate &amp; evaluate prompt variants automatically.</li>
                     </ul>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Section 10: Config Parameters -->
     <div class="major-section">
         <div class="section-title">10. Model Configuration Parameters</div>
+
         <div class="table-card mb-small">
-            <div class="table-card-header">Sampling Controls</div>
+            <div class="table-card-header">Output Controls</div>
             <table>
                 <thead>
                     <tr>
@@ -680,55 +703,55 @@ print(meta.total_token_count)</code></pre>
                         <th>Range</th>
                         <th>Low Value</th>
                         <th>High Value</th>
-                        <th>Recommended Start</th>
+                        <th>Recommended Starting Point</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Temperature</strong></td>
-                        <td>0 – 1.0</td>
-                        <td>Deterministic, factual</td>
-                        <td>Creative, diverse</td>
-                        <td>0.2 (factual) | 0.9 (creative) | 0 (CoT)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Top-K</strong></td>
-                        <td>1 – 40+</td>
-                        <td>Conservative (20)</td>
-                        <td>More diverse (40+)</td>
-                        <td>30 balanced default</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Top-P</strong></td>
-                        <td>0 – 1.0</td>
-                        <td>Tighter logic (0.9)</td>
-                        <td>More variety (0.99)</td>
-                        <td>0.95 balanced default</td>
+                        <td><strong>thinking_level</strong></td>
+                        <td><code>low</code> | <code>medium</code> | <code>high</code></td>
+                        <td>Faster, cheaper, less reasoning</td>
+                        <td>Deeper reasoning, more billed tokens</td>
+                        <td><code>medium</code> (the default) — drop to <code>low</code> for cost</td>
                     </tr>
                     <tr>
                         <td><strong>Max Output Tokens</strong></td>
-                        <td>1 – max</td>
+                        <td>1 – model max</td>
                         <td colspan="2">Controls cost &amp; latency. Too short truncates JSON — add buffer.</td>
-                        <td>Set explicitly in production</td>
+                        <td>Set explicitly for production</td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <div class="card mb-small">
+            <div class="card-title">⚠ Deprecated sampling parameters (July 2026)</div>
+            <div class="card-content">
+                <ul>
+                    <li><code>temperature</code>, <code>top_p</code>, <code>top_k</code> are <strong>deprecated</strong> — strip them from generation configs. Also remove <code>candidate_count</code> (unsupported on Gemini 3+).</li>
+                    <li>Use <code>thinking_level</code> instead: <code>low</code> | <code>medium</code> (default) | <code>high</code>.</li>
+                    <li>On <code>gemini-3.8-flash</code>, <code>minimal</code> is <strong>not supported</strong> and thinking <strong>cannot be disabled</strong> — there is no <code>thinking_budget=0</code> off-switch.</li>
+                    <li>Setting both <code>thinking_level</code> and the legacy <code>thinking_budget</code> in one request returns a <strong>400 error</strong>.</li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 
     <!-- Section 11: Best Practices -->
     <div class="major-section">
         <div class="section-title">11. Prompt Writing Best Practices</div>
+
         <div class="grid-2">
             <div class="card-light">
                 <div class="card-title">Do This</div>
                 <div class="card-content">
                     <ul>
-                        <li>Start with action verbs: <em>Summarize, Classify, Extract, Translate</em></li>
+                        <li>Start with strong action verbs: <em>Summarize, Classify, Extract, Translate</em></li>
                         <li>Be specific about format: "Return a JSON array with fields: name, score"</li>
                         <li>Use positive instructions — tell the model what TO do</li>
                         <li>Add examples (few-shot) when format matters</li>
-                        <li>Set temp=0 for deterministic/reasoning tasks (CoT)</li>
+                        <li>Set temp=0 for deterministic/reasoning tasks (math, CoT)</li>
                         <li>Use variables: <code>{city}</code>, <code>{user_input}</code> for reusability</li>
                         <li>Document your prompts: version, model, settings, output</li>
                     </ul>
@@ -740,30 +763,32 @@ print(meta.total_token_count)</code></pre>
                     <ul>
                         <li>Vague instructions: "Write something about AI" → too broad</li>
                         <li>Negative-only constraints: "Don't mention X" → weaker than "Focus only on Y"</li>
-                        <li>Assuming CoT output at high temp → use temp=0 for reasoning</li>
+                        <li>Assuming CoT output → always set temp=0 for reasoning</li>
                         <li>Ignoring token limits → JSON gets truncated; use <code>json-repair</code> as safety net</li>
-                        <li>Testing only happy path — always test edge cases</li>
-                        <li>Skipping: Craft → Test → Analyze → Document → Refine loop</li>
+                        <li>Using prompts without testing on edge cases</li>
+                        <li>Skipping the iterative loop: Craft → Test → Analyze → Document → Refine</li>
                     </ul>
                 </div>
             </div>
         </div>
+
     </div>
 
-    <!-- Section 12: Resources -->
+    <!-- Section 12: API Docs -->
     <div class="major-section">
         <div class="section-title">12. Key Resources</div>
+
         <div class="grid-3">
             <div class="card">
                 <div class="card-title">Official Docs</div>
                 <div class="card-content">
                     <ul>
                         <li>Quickstart: <code>ai.google.dev/gemini-api</code></li>
-                        <li>Images: <code>.../image-understanding</code></li>
-                        <li>PDFs: <code>.../document-processing</code></li>
-                        <li>Embeddings: <code>.../embeddings</code></li>
-                        <li>Audio: <code>.../audio</code></li>
-                        <li>Video: <code>.../video-understanding</code></li>
+                        <li>Images: <code>…/image-understanding</code></li>
+                        <li>PDFs: <code>…/document-processing</code></li>
+                        <li>Embeddings: <code>…/embeddings</code></li>
+                        <li>Audio: <code>…/audio</code></li>
+                        <li>Video: <code>…/video-understanding</code></li>
                     </ul>
                 </div>
             </div>
@@ -787,8 +812,8 @@ print(meta.total_token_count)</code></pre>
                         <li><code>google-genai</code> — Official SDK</li>
                         <li><code>httpx</code> — Fetch PDFs from URLs</li>
                         <li><code>pathlib</code> — Local file paths</li>
-                        <li><code>pydantic</code> — Structured output schemas</li>
-                        <li><code>numpy</code> — Embedding dot products</li>
+                        <li><code>pydantic</code> — Structured output</li>
+                        <li><code>numpy</code> — Embedding math</li>
                         <li><code>pandas</code> — Document store</li>
                         <li><code>json-repair</code> — Fix truncated JSON</li>
                     </ul>
@@ -797,9 +822,10 @@ print(meta.total_token_count)</code></pre>
         </div>
 
         <div class="info-box">
-            <div class="info-box-title">API Key Tips</div>
+            <div class="info-box-title">💡 API Key Tips</div>
             <p>Both <code>GOOGLE_API_KEY</code> and <code>GEMINI_API_KEY</code> are accepted — if both are set, <code>GOOGLE_API_KEY</code> takes precedence. Get your key at <strong>aistudio.google.com/app/apikey</strong>. Use <code>python-dotenv</code> to load from <code>.env</code> files in development.</p>
         </div>
+
     </div>
 
     <!-- Footer -->
