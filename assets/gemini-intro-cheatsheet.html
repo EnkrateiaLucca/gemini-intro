@@ -347,7 +347,9 @@ print(response.text)</code></pre>
     model="gemini-3.8-flash",
     contents="Write a haiku about Python",
     config=types.GenerateContentConfig(
-        thinking_level="low",
+        thinking_config=types.ThinkingConfig(
+            thinking_level="low"
+        ),
         max_output_tokens=256,
     )
 )
@@ -650,7 +652,7 @@ print(meta.total_token_count)</code></pre>
             <div class="card-title">Advanced Techniques</div>
             <div class="card-content">
                 <ul>
-                    <li><strong>Chain of Thought (CoT)</strong> — Append "Let's think step by step." Pair with <code>thinking_level="high"</code>.</li>
+                    <li><strong>Chain of Thought (CoT)</strong> — Append "Let's think step by step." Pair with a <code>high</code> thinking level (see §10).</li>
                     <li><strong>Self-Consistency</strong> — Run CoT N times, take the majority answer.</li>
                     <li><strong>Step-Back Prompting</strong> — Ask the general question first, use answer as context.</li>
                     <li><strong>ReAct</strong> — Reason + Act: interleave Thought / Action / Observation loops for agents.</li>
@@ -677,7 +679,7 @@ print(meta.total_token_count)</code></pre>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>thinking_level</strong></td>
+                    <td><strong>thinking_level</strong><br><span style="font-weight: 400;">(nested — see below)</span></td>
                     <td><code>low</code> | <code>medium</code> | <code>high</code></td>
                     <td>Faster, cheaper, less reasoning</td>
                     <td>Deeper reasoning, more billed tokens</td>
@@ -691,6 +693,10 @@ print(meta.total_token_count)</code></pre>
                 </tr>
             </tbody>
         </table>
+        <div style="padding: 10px 14px; font-size: 12px;">
+            <strong>⚠ <code>thinking_level</code> is not a top-level kwarg.</strong> It lives on the nested <code>ThinkingConfig</code> object — passing it directly to <code>GenerateContentConfig</code> raises a pydantic <code>ValidationError</code>:<br>
+            <code>config=types.GenerateContentConfig(thinking_config=types.ThinkingConfig(thinking_level="low"))</code>
+        </div>
     </div>
 
     <div class="card mb-small">
@@ -698,7 +704,7 @@ print(meta.total_token_count)</code></pre>
         <div class="card-content">
             <ul>
                 <li><code>temperature</code>, <code>top_p</code>, <code>top_k</code> are <strong>deprecated</strong> — strip them from generation configs. Also remove <code>candidate_count</code> (unsupported on Gemini 3+).</li>
-                <li>Use <code>thinking_level</code> instead: <code>low</code> | <code>medium</code> (default) | <code>high</code>.</li>
+                <li>Use <code>thinking_level</code> instead — <code>low</code> | <code>medium</code> (default) | <code>high</code> — passed <strong>nested</strong>, not as a top-level kwarg:<br><code>config=types.GenerateContentConfig(thinking_config=types.ThinkingConfig(thinking_level="low"))</code></li>
                 <li>On <code>gemini-3.8-flash</code>, <code>minimal</code> is <strong>not supported</strong> and thinking <strong>cannot be disabled</strong> — there is no <code>thinking_budget=0</code> off-switch.</li>
                 <li>Setting both <code>thinking_level</code> and the legacy <code>thinking_budget</code> in one request returns a <strong>400 error</strong>.</li>
             </ul>
