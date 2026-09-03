@@ -135,8 +135,7 @@
 
     <div class="tabs">
         <div class="tab active" onclick="showTab('ai-studio')">AI Studio</div>
-        <div class="tab" onclick="showTab('firebase')">Firebase Studio</div>
-        <div class="tab" onclick="showTab('idx')">Project IDX</div>
+        <div class="tab" onclick="showTab('firebase')">Firebase Studio (sunsetting)</div>
         <div class="tab" onclick="showTab('antigravity')">Antigravity</div>
     </div>
 
@@ -154,23 +153,12 @@
 
         <!-- Firebase Studio -->
         <div id="firebase" class="section">
-            <h2 class="tool-title">Firebase App Prototyping <span class="badge">MVP Phase</span></h2>
+            <h2 class="tool-title">Firebase App Prototyping <span class="badge">Sunsetting</span></h2>
             <p>Chat your way to a deployed, full-stack Next.js application.</p>
             <ul>
+                <li><strong>⚠ Being retired:</strong> New signups were disabled in June 2026 and Firebase Studio shuts down in 2027. Existing projects need to migrate — start new work in AI Studio or Antigravity instead.</li>
                 <li><strong>Automated Provisioning:</strong> Instantly provisions your Firebase project and Gemini API keys behind the scenes.</li>
                 <li><strong>Live Preview & Annotations:</strong> View your app in the browser, click elements to modify them, or draw annotations to request UI changes from the AI.</li>
-                <li><strong>Best For:</strong> Solo founders, designers, and developers looking to spin up an interactive, database-backed web MVP in an afternoon.</li>
-            </ul>
-        </div>
-
-        <!-- Project IDX -->
-        <div id="idx" class="section">
-            <h2 class="tool-title">Project IDX <span class="badge">Build Phase</span></h2>
-            <p>The cloud-native IDE for taking control of your codebase.</p>
-            <ul>
-                <li><strong>VS Code in the Browser:</strong> A fully-featured coding environment with deep Gemini coding assistance.</li>
-                <li><strong>Built-in Emulators:</strong> Seamlessly preview mobile apps (like Flutter) using built-in Android and iOS emulators.</li>
-                <li><strong>Best For:</strong> Multiplatform development, refining AI-generated prototypes, and teams already invested in the Google Cloud ecosystem.</li>
             </ul>
         </div>
 
@@ -193,7 +181,6 @@
                 <option value="none">-- Choose an objective --</option>
                 <option value="idea">I just want to see if my prompt works and get a quick UI.</option>
                 <option value="mvp">I want to describe an app and have AI build and host it automatically.</option>
-                <option value="code">I have a Flutter app idea and need an IDE with mobile emulators.</option>
                 <option value="scale">I need an AI agent to autonomously test and refactor my entire codebase.</option>
             </select>
             <div id="recommendation-result"></div>
@@ -221,10 +208,7 @@
                 resultDiv.innerHTML = "👉 Use <strong>Google AI Studio</strong> to vibe code a quick visual prototype.";
                 break;
             case 'mvp':
-                resultDiv.innerHTML = "👉 Use the <strong>Firebase App Prototyping Agent</strong> to generate a full-stack MVP.";
-                break;
-            case 'code':
-                resultDiv.innerHTML = "👉 Use <strong>Project IDX</strong> for multiplatform cloud coding.";
+                resultDiv.innerHTML = "👉 Use <strong>AI Studio Build mode</strong> and deploy to Cloud Run. (The <strong>Firebase App Prototyping Agent</strong> did this too, but it is being retired — don't start new projects there.)";
                 break;
             case 'scale':
                 resultDiv.innerHTML = "👉 Use <strong>Google Antigravity</strong> to orchestrate complex development tasks.";
