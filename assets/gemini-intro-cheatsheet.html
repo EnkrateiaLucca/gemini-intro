@@ -301,7 +301,7 @@
     <div class="page-header">
         <h1>Building Apps with Gemini</h1>
         <div class="subtitle">O'Reilly Live Training — Quick Reference Cheatsheet</div>
-        <div class="meta">google-genai SDK | Gemini 3.5 Flash | Python 3.10+ | 2026</div>
+        <div class="meta">google-genai SDK | Gemini 3.8 Flash | Python 3.10+ | 2026</div>
     </div>
 
     <!-- Section 1: Setup -->
@@ -336,20 +336,18 @@ client = genai.Client(
         <div class="code-card">
             <div class="code-card-header">Basic Generation</div>
             <pre><code>response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents="Explain transformers in 3 bullets"
 )
 print(response.text)</code></pre>
         </div>
         <div class="code-card">
-            <div class="code-card-header">With Config (Temp/Top-K/Top-P)</div>
+            <div class="code-card-header">With Config (Thinking Level)</div>
             <pre><code>response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents="Write a haiku about Python",
     config=types.GenerateContentConfig(
-        temperature=0.9,
-        top_k=40,
-        top_p=0.99,
+        thinking_level="low",
         max_output_tokens=256,
     )
 )
@@ -368,7 +366,7 @@ my_file = client.files.upload(
     file="./photo.png"
 )
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=[my_file, "Caption this image."]
 )
 print(response.text)</code></pre>
@@ -379,7 +377,7 @@ print(response.text)</code></pre>
     image_bytes = f.read()
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=[
         types.Part.from_bytes(
             data=image_bytes,
@@ -402,7 +400,7 @@ doc_data = httpx.get(
 ).content
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=[
         types.Part.from_bytes(
             data=doc_data,
@@ -420,7 +418,7 @@ print(response.text)</code></pre>
 filepath = pathlib.Path("./paper.pdf")
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=[
         types.Part.from_bytes(
             data=filepath.read_bytes(),
@@ -450,7 +448,7 @@ class Table(BaseModel):
     )
 
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=[pdf_part, "Extract all tables"],
     config={
         "response_mime_type": "application/json",
@@ -461,13 +459,13 @@ tables = response.parsed  # list[Table]</code></pre>
         </div>
         <div class="code-card">
             <div class="code-card-header">Extract Sections from Text</div>
-            <pre><code">class Section(BaseModel):
+            <pre><code>class Section(BaseModel):
     title: str
     content: str
 
 def extract_sections(text: str):
     response = client.models.generate_content(
-        model="gemini-3.5-flash",
+        model="gemini-3.8-flash",
         contents=(
             "Extract main sections "
             f"from:\n\n{text}"
@@ -492,7 +490,7 @@ for s in sections:
     <div class="grid-2">
         <div class="code-card">
             <div class="code-card-header">Generate Embeddings</div>
-            <pre><code"># Single embedding
+            <pre><code># Single embedding
 result = client.models.embed_content(
     model="gemini-embedding-2",
     contents="What is the meaning of life?"
@@ -553,7 +551,7 @@ def find_best_passage(query: str, dataframe: pd.DataFrame) -> str:
 # 3. Answer with context
 passage = find_best_passage("best prompting techniques?", df)
 answer = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents=f"Answer using this context:\n{passage}\n\nQuestion: best prompting techniques?"
 )
 print(answer.text)</code></pre>
@@ -565,16 +563,16 @@ print(answer.text)</code></pre>
     <div class="grid-2">
         <div class="code-card">
             <div class="code-card-header">Count Tokens (Before Generation)</div>
-            <pre><code">total = client.models.count_tokens(
-    model="gemini-3.5-flash",
+            <pre><code>total = client.models.count_tokens(
+    model="gemini-3.8-flash",
     contents="The quick brown fox."
 )
 print(total.total_tokens)  # e.g. 10</code></pre>
         </div>
         <div class="code-card">
             <div class="code-card-header">Usage Metadata (After Generation)</div>
-            <pre><code">response = client.models.generate_content(
-    model="gemini-3.5-flash",
+            <pre><code>response = client.models.generate_content(
+    model="gemini-3.8-flash",
     contents="Explain AI in 50 words"
 )
 meta = response.usage_metadata
@@ -599,19 +597,24 @@ print(meta.total_token_count)</code></pre>
             </thead>
             <tbody>
                 <tr>
-                    <td><code>gemini-3.5-flash</code></td>
+                    <td><code>gemini-3.8-flash</code></td>
                     <td>Current default — text &amp; multimodal tasks</td>
                     <td>Default choice for dev &amp; production</td>
                 </tr>
                 <tr>
+                    <td><code>gemini-3.5-flash-lite</code></td>
+                    <td>Budget tier — high-volume, latency-sensitive work</td>
+                    <td>Cheapest and fastest; free-tier eligible</td>
+                </tr>
+                <tr>
                     <td><code>gemini-3.1-pro-preview</code></td>
                     <td>Pro tier — complex reasoning, PDF analysis</td>
-                    <td>Highest capability, higher cost</td>
+                    <td>Highest capability, higher cost — <strong>no free tier</strong></td>
                 </tr>
                 <tr>
                     <td><code>gemini-3.1-flash-image</code></td>
                     <td>Image generation</td>
-                    <td>Specialized for image synthesis tasks</td>
+                    <td>Specialized for image synthesis — <strong>no free tier</strong></td>
                 </tr>
                 <tr>
                     <td><code>gemini-embedding-2</code></td>
@@ -647,8 +650,8 @@ print(meta.total_token_count)</code></pre>
             <div class="card-title">Advanced Techniques</div>
             <div class="card-content">
                 <ul>
-                    <li><strong>Chain of Thought (CoT)</strong> — Append "Let's think step by step." Use temp=0.</li>
-                    <li><strong>Self-Consistency</strong> — Run CoT N times at higher temp, take majority answer.</li>
+                    <li><strong>Chain of Thought (CoT)</strong> — Append "Let's think step by step." Pair with <code>thinking_level="high"</code>.</li>
+                    <li><strong>Self-Consistency</strong> — Run CoT N times, take the majority answer.</li>
                     <li><strong>Step-Back Prompting</strong> — Ask the general question first, use answer as context.</li>
                     <li><strong>ReAct</strong> — Reason + Act: interleave Thought / Action / Observation loops for agents.</li>
                     <li><strong>APE</strong> — Use LLM to generate &amp; evaluate prompt variants automatically.</li>
@@ -661,7 +664,7 @@ print(meta.total_token_count)</code></pre>
     <div class="section-title">10. Model Configuration Parameters</div>
 
     <div class="table-card mb-small">
-        <div class="table-card-header">Sampling Controls</div>
+        <div class="table-card-header">Output Controls</div>
         <table>
             <thead>
                 <tr>
@@ -674,25 +677,11 @@ print(meta.total_token_count)</code></pre>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Temperature</strong></td>
-                    <td>0 – 1.0</td>
-                    <td>Deterministic, factual</td>
-                    <td>Creative, diverse</td>
-                    <td>0.2 (factual) | 0.9 (creative) | 0 (CoT)</td>
-                </tr>
-                <tr>
-                    <td><strong>Top-K</strong></td>
-                    <td>1 – 40+</td>
-                    <td>Conservative (20)</td>
-                    <td>More diverse (40+)</td>
-                    <td>30 as a balanced default</td>
-                </tr>
-                <tr>
-                    <td><strong>Top-P</strong></td>
-                    <td>0 – 1.0</td>
-                    <td>Tighter logic (0.9)</td>
-                    <td>More variety (0.99)</td>
-                    <td>0.95 as balanced default</td>
+                    <td><strong>thinking_level</strong></td>
+                    <td><code>low</code> | <code>medium</code> | <code>high</code></td>
+                    <td>Faster, cheaper, less reasoning</td>
+                    <td>Deeper reasoning, more billed tokens</td>
+                    <td><code>medium</code> (the default) — drop to <code>low</code> for cost</td>
                 </tr>
                 <tr>
                     <td><strong>Max Output Tokens</strong></td>
@@ -702,6 +691,18 @@ print(meta.total_token_count)</code></pre>
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <div class="card mb-small">
+        <div class="card-title">⚠ Deprecated sampling parameters (July 2026)</div>
+        <div class="card-content">
+            <ul>
+                <li><code>temperature</code>, <code>top_p</code>, <code>top_k</code> are <strong>deprecated</strong> — strip them from generation configs. Also remove <code>candidate_count</code> (unsupported on Gemini 3+).</li>
+                <li>Use <code>thinking_level</code> instead: <code>low</code> | <code>medium</code> (default) | <code>high</code>.</li>
+                <li>On <code>gemini-3.8-flash</code>, <code>minimal</code> is <strong>not supported</strong> and thinking <strong>cannot be disabled</strong> — there is no <code>thinking_budget=0</code> off-switch.</li>
+                <li>Setting both <code>thinking_level</code> and the legacy <code>thinking_budget</code> in one request returns a <strong>400 error</strong>.</li>
+            </ul>
+        </div>
     </div>
 
     <!-- Section 11: Best Practices -->
