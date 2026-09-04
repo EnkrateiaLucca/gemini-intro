@@ -337,7 +337,7 @@ client = genai.Client(
 
     <!-- Section 2: Text Generation -->
     <div class="major-section">
-        <div class="section-title">2. Text Generation</div>
+        <div class="section-title">2. Text Generation &amp; Chat</div>
 
         <div class="grid-2">
             <div class="code-card">
@@ -361,6 +361,36 @@ print(response.text)</code></pre>
     )
 )
 print(response.text)</code></pre>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="code-card">
+                <div class="code-card-header">Multi-turn Chat (keeps history)</div>
+                <pre><code># generate_content is one-shot; a chat
+# session replays the history for you.
+chat = client.chats.create(
+    model="gemini-3.8-flash"
+)
+chat.send_message("Who wrote Dune?")
+r = chat.send_message("When was it published?")
+print(r.text)  # "it" still resolves</code></pre>
+            </div>
+            <div class="code-card">
+                <div class="code-card-header">Chat Over a Document</div>
+                <pre><code># Attach the PDF once, on turn 1
+chat.send_message([
+    types.Part.from_bytes(
+        data=doc_data,
+        mime_type="application/pdf",
+    ),
+    "What benchmark does this introduce?",
+])
+# Turn 2 — nothing resent
+r = chat.send_message("Who scored highest?")
+
+for m in chat.get_history():
+    print(m.role, ":", m.parts[-1].text[:60])</code></pre>
             </div>
         </div>
 
@@ -602,7 +632,15 @@ print(total.total_tokens)  # e.g. 10</code></pre>
 meta = response.usage_metadata
 print(meta.prompt_token_count)
 print(meta.candidates_token_count)
+print(meta.thoughts_token_count)
 print(meta.total_token_count)</code></pre>
+            </div>
+        </div>
+
+        <div class="card mb-small">
+            <div class="card-title">⚠ Thinking tokens are billed as output</div>
+            <div class="card-content">
+                On a thinking model <code>thoughts_token_count</code> is frequently <strong>larger than the answer itself</strong> — a sample run of the course notebook produced 153 thinking tokens against 62 tokens of visible answer. Adding <code>prompt_token_count</code> to the length of <code>response.text</code> therefore understates the bill; read <code>total_token_count</code> for the real number.
             </div>
         </div>
 
