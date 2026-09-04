@@ -39,7 +39,7 @@ class: center, middle
 # Building AI Apps with Gemini and Google AI Studio
 
 ## Lucas Soares
-### Automata Learning Lab · 2026
+### Automata Learning Lab · September 2026
 
 ---
 
@@ -100,14 +100,14 @@ Google's frontier multimodal model family
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0;">
 <div style="background: #E8F1F9; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
 <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
-<strong style="color: #000000;">Gemini 3.5 Flash</strong>
+<strong style="color: #000000;">Gemini 3.8 Flash</strong>
 <span style="font-size: 11px; background: #7CB56B; color: #fff; padding: 2px 8px; font-weight: 600;">DEFAULT</span>
 </div>
-<p style="font-size: 13px; color: #5C5750; margin: 0;">GA at I/O 2026. Thinking model, runs on the free tier — your workhorse.</p>
+<p style="font-size: 13px; color: #5C5750; margin: 0;">GA September 2026. Thinking model, free-tier eligible — your workhorse.</p>
 </div>
 <div style="background: #EEF5EC; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
 <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
-<strong style="color: #000000;">Gemini 3.1 Flash-Lite</strong>
+<strong style="color: #000000;">Gemini 3.5 Flash-Lite</strong>
 <span style="font-size: 11px; background: #5B9BD5; color: #fff; padding: 2px 8px; font-weight: 600;">BUDGET</span>
 </div>
 <p style="font-size: 13px; color: #5C5750; margin: 0;">Cheapest and fastest — high-volume, latency-sensitive work.</p>
@@ -117,7 +117,7 @@ Google's frontier multimodal model family
 <strong style="color: #000000;">Gemini 3.1 Flash Image</strong>
 <span style="font-size: 11px; background: #9B72B0; color: #fff; padding: 2px 8px; font-weight: 600;">IMAGES</span>
 </div>
-<p style="font-size: 13px; color: #5C5750; margin: 0;">Nano Banana — fast image generation &amp; editing (<code>gemini-3.1-flash-image</code>).</p>
+<p style="font-size: 13px; color: #5C5750; margin: 0;">Nano Banana — fast image generation &amp; editing (<code>gemini-3.1-flash-image</code>). Paid only — no free quota.</p>
 </div>
 <div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 16px;">
 <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
@@ -341,7 +341,7 @@ Almost everything is a checkbox now — convenience vs. programmatic control, no
 <p style="font-size: 0.7em; color: #5C5750; text-transform: uppercase; letter-spacing: 0.1em;">CRITICAL SDK MIGRATION</p>
 
 <div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 12px 16px; margin-bottom: 20px;">
-<span style="color: #E86B5A; font-weight: bold;">⚠ Half the tutorials online use <code>google-generativeai</code> — deprecated Nov 2025, broken on Live API, Veo, and Files API v2. Use only <code>google-genai</code>.</span>
+<span style="color: #E86B5A; font-weight: bold;">⚠ Many tutorials still teach <code>google-generativeai</code> — frozen since Nov 2025, still 14M installs/month, never getting Live API or Veo. Use only <code>google-genai</code>.</span>
 </div>
 
 <div style="background: #EEF5EC; padding: 20px; border: 2px solid #000000; border-radius: 0px;">
@@ -350,7 +350,7 @@ Almost everything is a checkbox now — convenience vs. programmatic control, no
 
 client = genai.Client()
 response = client.models.generate_content(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     contents="Hi",
 )</code></pre>
 </div>
@@ -443,8 +443,8 @@ Enabling Cloud Billing on the API key flips training off — even within free qu
 <p style="font-size: 13px; color: #2A2825; margin: 0;">AI Studio is a scratchpad — nothing is saved. Export to Git or notebooks immediately.</p>
 </div>
 <div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 14px;">
-<h4 style="margin: 0 0 6px; color: #000000;">Pro tiers are paid-only</h4>
-<p style="font-size: 13px; color: #2A2825; margin: 0;">Free key + Pro model = <code>429 — limit: 0</code>. Prototype on Flash; the strongest model has no free quota.</p>
+<h4 style="margin: 0 0 6px; color: #000000;">Pro <em>and image</em> models are paid-only</h4>
+<p style="font-size: 13px; color: #2A2825; margin: 0;">Free key + Pro <em>or</em> image model = <code>429 — limit: 0</code>. Prototype on Flash; <code>gemini-3.1-flash-image</code> and <code>gemini-3-pro-image</code> have no free quota either.</p>
 </div>
 <div style="background: #FBEAE7; border: 2px solid #000000; border-radius: 0px; padding: 14px;">
 <h4 style="margin: 0 0 6px; color: #000000;">"Get Code" is a starting point</h4>
@@ -452,7 +452,7 @@ Enabling Cloud Billing on the API key flips training off — even within free qu
 </div>
 <div style="background: #FEF8E6; border: 2px solid #000000; border-radius: 0px; padding: 14px; grid-column: 1 / -1;">
 <h4 style="margin: 0 0 4px; color: #000000;">Product fragmentation</h4>
-<p style="font-size: 13px; color: #5C5750; margin: 0;">AI Studio · Vertex AI Studio · Firebase Studio · Gemini CLI · Jules · Opal · Stitch · Colab AI · NotebookLM — pick one and stay focused.</p>
+<p style="font-size: 13px; color: #5C5750; margin: 0;">AI Studio · Vertex AI Studio · Firebase Studio <em>(sunsetting — signups closed)</em> · Gemini CLI · Jules · Opal · Stitch · Colab AI · NotebookLM — pick one and stay focused.</p>
 </div>
 </div>
 
@@ -755,14 +755,6 @@ GeoSeeker · Maps Travel Planner · Structured Data Extractor
 <p style="font-size: 14px; color: #2A2825;">Agents generating diagrams · Visual PDF summaries · Updating onboarding assets</p>
 </div>
 </div>
-
----
-
-class: center, middle
-
-<div style="font-size: 4em; color: #ddd; font-family: 'IBM Plex Sans';">05</div>
-
-# Agentic Workflows with Gemini
 
 ---
 

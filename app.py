@@ -3,8 +3,12 @@ import json
 import base64
 import io
 from flask import Flask, request, jsonify, render_template
-import google.generativeai as genai
+from google import genai
+from google.genai import types
+from dotenv import load_dotenv
 from PIL import Image
+
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -14,7 +18,7 @@ if not gemini_api_key:
     # Try a fallback if not in env but might be passed manually or in .env
     pass
 
-genai.configure(api_key=gemini_api_key)
+client = genai.Client(api_key=gemini_api_key)
 
 @app.route("/")
 def index():
@@ -29,8 +33,6 @@ def generate_descriptions():
 
     try:
         # Generate the frame descriptions
-        model = genai.GenerativeModel('gemini-3-flash-preview')
-        
         prompt = f"""
         You are an expert storyboard artist.
         Given the following story, break it down into exactly 6 distinct visual frames for a storyboard.
@@ -44,7 +46,10 @@ def generate_descriptions():
         Example: ["Prompt 1", "Prompt 2", "Prompt 3", "Prompt 4", "Prompt 5", "Prompt 6"]
         """
         
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model='gemini-3.8-flash',
+            contents=prompt,
+        )
         text_response = response.text.strip()
         
         # Strip markdown formatting if present
@@ -72,8 +77,13 @@ def generate_image():
         return jsonify({"error": "Prompt is required"}), 400
 
     try:
-        model = genai.GenerativeModel('gemini-3-pro-image-preview')
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model='gemini-3.1-flash-image',
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_modalities=['IMAGE', 'TEXT']
+            )
+        )
 
         image_data_base64 = None
 
